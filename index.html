@@ -6,11 +6,11 @@
     <title>ZUMA Lounge — Shisha & Cocktails in Geilenkirchen</title>
     <meta name="description" content="ZUMA Lounge Geilenkirchen — Premium Shisha, handgemachte Cocktails & einzigartiges Ambiente. Dein Abend beginnt hier.">
     <meta property="og:title" content="ZUMA Lounge — Shisha & Cocktails in Geilenkirchen">
-    <meta property="og:description" content="Premium Shisha, handgemachte Cocktails & einzigartiges Ambiente. Dein Abend beginnt hier.">
+    <meta property="og:description" content="Premium Shisha, handgemachte Cocktails & einzigartiges Ambiente in Geilenkirchen.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="application/ld+json">
     {
@@ -18,46 +18,56 @@
         "@type": "BarOrPub",
         "name": "ZUMA Lounge",
         "description": "Premium Shisha Lounge & Cocktailbar in Geilenkirchen",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Heinsberger Str. 77",
-            "addressLocality": "Geilenkirchen",
-            "postalCode": "52511",
-            "addressCountry": "DE"
-        },
+        "address": { "@type": "PostalAddress", "streetAddress": "Heinsberger Str. 77", "addressLocality": "Geilenkirchen", "postalCode": "52511", "addressCountry": "DE" },
         "telephone": "+491712112348",
         "openingHoursSpecification": [
             { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"], "opens": "18:00", "closes": "00:00" },
             { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "18:00", "closes": "02:00" }
         ],
-        "sameAs": ["https://www.instagram.com/zuma.lounge/", "https://www.facebook.com/zumaloungee.gk/"]
+        "sameAs": ["https://www.instagram.com/zuma.lounge/","https://www.facebook.com/zumaloungee.gk/"]
     }
     </script>
     <style>
         :root {
-            --black: #050507;
-            --surface: #0B0B10;
-            --card: #111116;
-            --card-border: rgba(255,255,255,0.04);
-            --gold: #C9A84C;
-            --gold-light: #E2C97E;
-            --gold-dark: #A68A3A;
-            --gold-glow: rgba(201,168,76,0.12);
-            --gold-subtle: rgba(201,168,76,0.05);
-            --cream: #EDE8DF;
-            --cream-mid: #9E9889;
-            --cream-dim: #5C584F;
-            --font-serif: 'Cormorant Garamond', 'Georgia', serif;
-            --font-sans: 'Outfit', system-ui, sans-serif;
+            /* ═══ COLOR SYSTEM — Dark Purple + Gold ═══ */
+            --bg:          #0E0B14;
+            --bg-warm:     #120F1A;
+            --surface:     #16131F;
+            --surface-2:   #1C1828;
+            --card:        #1F1B2C;
+            --card-hover:  #262235;
+            --border:      rgba(139,111,192,0.06);
+            --border-gold: rgba(181,161,108,0.08);
+
+            --purple:      #8B6FC0;
+            --purple-soft: #A78FD4;
+            --purple-deep: #6B4FA0;
+            --purple-glow: rgba(139,111,192,0.10);
+            --purple-sub:  rgba(139,111,192,0.04);
+
+            --gold:        #B5A16C;
+            --gold-bright: #CCBA84;
+            --gold-dim:    #9A8A5C;
+            --gold-glow:   rgba(181,161,108,0.10);
+            --gold-sub:    rgba(181,161,108,0.04);
+
+            --white:       #F2EDE4;
+            --white-2:     #D4CFCA;
+            --white-3:     #A8A29C;
+            --white-4:     #6E6A64;
+            --white-5:     #3E3B38;
+
+            --serif:       'Cormorant Garamond', Georgia, serif;
+            --sans:        'Outfit', system-ui, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-sans);
-            background: var(--black);
-            color: var(--cream);
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--white);
             font-size: 15px;
             font-weight: 300;
             line-height: 1.75;
@@ -65,763 +75,666 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        ::selection {
-            background: var(--gold);
-            color: var(--black);
+        ::selection { background: var(--purple); color: #fff; }
+
+        /* ═══ AMBIENT ═══ */
+        .ambient {
+            position: fixed; inset: 0;
+            pointer-events: none; z-index: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 8% 15%, rgba(139,111,192,0.035) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 60% at 92% 80%, rgba(181,161,108,0.025) 0%, transparent 55%),
+                radial-gradient(ellipse 80% 30% at 50% 100%, rgba(139,111,192,0.02) 0%, transparent 50%);
         }
 
-        /* ═══ GLOBAL SMOKE ATMOSPHERE ═══ */
-        .smoke-atmosphere {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            pointer-events: none;
-            z-index: 0;
-            background:
-                radial-gradient(ellipse 80% 60% at 15% 25%, rgba(201,168,76,0.025) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 80% at 85% 70%, rgba(201,168,76,0.02) 0%, transparent 60%),
-                radial-gradient(ellipse 100% 40% at 50% 100%, rgba(201,168,76,0.015) 0%, transparent 50%);
+        /* Grain */
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            pointer-events: none; z-index: 9999;
+            opacity: 0.018;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         /* ═══ LAYOUT ═══ */
         .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+        .wrap-narrow { max-width: 860px; margin: 0 auto; padding: 0 28px; }
         section { position: relative; z-index: 1; }
 
-        /* ═══ REVEAL ANIMATIONS ═══ */
-        .rv { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        /* ═══ REVEAL ═══ */
+        .rv {
+            opacity: 0; transform: translateY(32px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
         .rv.v { opacity: 1; transform: translateY(0); }
-        .rv-d1 { transition-delay: 0.1s; }
-        .rv-d2 { transition-delay: 0.2s; }
-        .rv-d3 { transition-delay: 0.3s; }
-        .rv-d4 { transition-delay: 0.4s; }
-        .rv-d5 { transition-delay: 0.5s; }
-        .rv-d6 { transition-delay: 0.6s; }
+        .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+        .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+        .d5 { transition-delay: .5s; } .d6 { transition-delay: .6s; }
 
         /* ═══ HEADER ═══ */
         header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 20px 0;
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 100; padding: 24px 0;
+            transition: all .6s cubic-bezier(.16,1,.3,1);
         }
         header.scrolled {
-            padding: 12px 0;
-            background: rgba(5,5,7,0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(201,168,76,0.06);
+            padding: 14px 0;
+            background: rgba(14,11,20,0.85);
+            backdrop-filter: blur(28px) saturate(1.3);
+            -webkit-backdrop-filter: blur(28px) saturate(1.3);
+            border-bottom: 1px solid var(--border);
         }
-        header .wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav { display: flex; align-items: center; gap: 36px; }
+        header .wrap { display: flex; justify-content: space-between; align-items: center; }
+
+        nav { display: flex; align-items: center; gap: 32px; }
         nav a {
-            font-family: var(--font-sans);
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--cream-mid);
-            text-decoration: none;
-            transition: color 0.4s ease;
-            position: relative;
+            font-size: 10px; font-weight: 400;
+            letter-spacing: .22em; text-transform: uppercase;
+            color: var(--white-3); text-decoration: none;
+            transition: color .4s; position: relative;
         }
         nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            content: ''; position: absolute;
+            bottom: -4px; left: 0; width: 0; height: 1px;
+            background: var(--purple-soft);
+            transition: width .5s cubic-bezier(.16,1,.3,1);
         }
-        nav a:hover { color: var(--gold); }
+        nav a:hover { color: var(--purple-soft); }
         nav a:hover::after { width: 100%; }
-
-        @media (max-width: 768px) {
-            nav a.nav-hide { display: none; }
-        }
+        @media (max-width:768px) { nav a.hm { display: none; } }
 
         /* ═══ LOGO ═══ */
-        .logo-mark {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        /* PLATZHALTER: Hier das echte Logo als <img> einsetzen */
-        /* <img src="pfad/zum/zuma-logo.png" alt="ZUMA Lounge" class="logo-img"> */
-        .logo-svg {
-            height: 38px;
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-        }
-        .logo-text .name {
-            font-family: var(--font-serif);
-            font-size: 26px;
-            font-weight: 500;
-            letter-spacing: 0.14em;
-            color: var(--cream);
-        }
-        .logo-text .sub {
-            font-family: var(--font-sans);
-            font-size: 8px;
-            font-weight: 400;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-top: 2px;
-        }
+        .logo-link { text-decoration: none; display: flex; align-items: center; }
+        .logo-svg { height: 36px; width: auto; }
+        .logo-svg .l-white { fill: none; stroke: var(--white); stroke-width: 2.6; stroke-linecap: square; stroke-linejoin: miter; }
+        .logo-svg .l-gold  { fill: none; stroke: var(--gold); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+        .logo-svg .l-txt   { fill: var(--gold); font-family: var(--sans); font-weight: 400; letter-spacing: 5px; }
+        .logo-svg .l-dash  { stroke: var(--gold); stroke-width: 1; opacity: .5; }
+        @media (max-width:500px) { .logo-svg { height: 30px; } }
 
-        /* ═══ HERO — FULL CINEMATIC ═══ */
+        /* ═══ HERO ═══ */
         .hero {
             position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
+            height: 100vh; min-height: 680px;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
         }
         .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: -2;
+            position: absolute; inset: 0; z-index: -2;
         }
         .hero-bg img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.25) saturate(0.6);
-            transform: scale(1.05);
-            animation: heroBreath 20s ease-in-out infinite;
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(.22) saturate(.45);
+            transform: scale(1.06);
+            animation: breathe 28s ease-in-out infinite;
         }
-        @keyframes heroBreath {
-            0%, 100% { transform: scale(1.05); }
-            50% { transform: scale(1.1); }
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: -1;
+        @keyframes breathe { 0%,100%{transform:scale(1.06)} 50%{transform:scale(1.11)} }
+
+        .hero-vig {
+            position: absolute; inset: 0; z-index: -1;
             background:
-                linear-gradient(180deg, rgba(5,5,7,0.5) 0%, rgba(5,5,7,0.2) 40%, rgba(5,5,7,0.7) 80%, var(--black) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
-        }
-        .hero-content { max-width: 700px; padding: 0 28px; }
-
-        /* Animated smoke wisps */
-        .smoke-wisp {
-            position: absolute;
-            width: 2px;
-            background: linear-gradient(180deg, transparent, rgba(201,168,76,0.15), transparent);
-            border-radius: 50%;
-            animation: wisps 6s ease-in-out infinite;
-            z-index: -1;
-        }
-        .smoke-wisp:nth-child(1) { left: 20%; height: 120px; animation-delay: 0s; animation-duration: 7s; }
-        .smoke-wisp:nth-child(2) { left: 50%; height: 180px; animation-delay: 2s; animation-duration: 8s; }
-        .smoke-wisp:nth-child(3) { left: 75%; height: 100px; animation-delay: 4s; animation-duration: 6s; }
-        @keyframes wisps {
-            0% { bottom: -20%; opacity: 0; transform: translateX(0); }
-            30% { opacity: 1; }
-            70% { opacity: 1; }
-            100% { bottom: 80%; opacity: 0; transform: translateX(30px); }
+                linear-gradient(180deg, rgba(14,11,20,.55) 0%, rgba(14,11,20,.12) 30%, rgba(14,11,20,.35) 65%, var(--bg) 100%),
+                radial-gradient(ellipse at 50% 40%, rgba(139,111,192,.04) 0%, transparent 55%);
         }
 
-        .hero-label {
-            display: inline-block;
-            font-family: var(--font-sans);
-            font-size: 10px;
-            font-weight: 400;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 28px;
-            position: relative;
-            padding: 0 40px;
+        /* Smoke wisps with purple tint */
+        .wisp {
+            position: absolute; width: 1.5px; border-radius: 50%;
+            z-index: -1; animation: rise 7s ease-in-out infinite;
         }
-        .hero-label::before,
-        .hero-label::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 28px;
-            height: 1px;
-            background: var(--gold);
-            opacity: 0.4;
+        .w1 { left:20%; height:150px; background:linear-gradient(180deg,transparent,rgba(139,111,192,.12),transparent); animation-delay:0s; animation-duration:8.5s; }
+        .w2 { left:50%; height:190px; background:linear-gradient(180deg,transparent,rgba(181,161,108,.10),transparent); animation-delay:3s; animation-duration:9.5s; }
+        .w3 { left:76%; height:130px; background:linear-gradient(180deg,transparent,rgba(139,111,192,.09),transparent); animation-delay:5.5s; animation-duration:7.5s; }
+        @keyframes rise {
+            0%   { bottom:-10%; opacity:0; transform:translateX(0) scaleX(1); }
+            20%  { opacity:.7; }
+            80%  { opacity:.5; }
+            100% { bottom:85%; opacity:0; transform:translateX(28px) scaleX(2); }
         }
-        .hero-label::before { left: 0; }
-        .hero-label::after { right: 0; }
+
+        .hero-inner { max-width: 680px; padding: 0 28px; }
+
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 9px; font-weight: 400;
+            letter-spacing: .5em; text-transform: uppercase;
+            color: var(--purple-soft); margin-bottom: 36px;
+        }
+        .ht-line { width: 28px; height: 1px; background: var(--purple-soft); opacity: .35; }
 
         .hero h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(40px, 7vw, 72px);
-            font-weight: 300;
-            line-height: 1.1;
-            color: var(--cream);
-            margin-bottom: 24px;
-            letter-spacing: 0.01em;
+            font-family: var(--serif);
+            font-size: clamp(44px,8vw,80px);
+            font-weight: 300; line-height: 1.06;
+            color: var(--white); margin-bottom: 20px;
+            letter-spacing: -.01em;
         }
-        .hero h1 em {
-            font-style: italic;
-            color: var(--gold);
-            font-weight: 400;
-        }
+        .hero h1 em { font-style: italic; color: var(--purple-soft); font-weight: 400; }
+
         .hero-sub {
-            font-family: var(--font-sans);
-            font-size: 15px;
-            font-weight: 300;
-            color: var(--cream-mid);
-            margin-bottom: 48px;
-            letter-spacing: 0.02em;
+            font-size: 16px; font-weight: 300;
+            color: var(--white-3); margin-bottom: 56px;
+            letter-spacing: .01em; line-height: 1.8;
         }
 
-        .hero-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
+        .hero-pills {
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
         }
-        .hero-info-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
+        .hero-pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 8px 20px; border-radius: 100px;
+            border: 1px solid rgba(139,111,192,.15);
+            background: rgba(139,111,192,.04);
+            font-size: 12px; font-weight: 400;
+            color: var(--white-2); letter-spacing: .03em;
+            transition: border-color .4s, background .4s;
         }
-        .hero-info-item .hi-label {
-            font-size: 9px;
-            font-weight: 400;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--cream-dim);
+        .hero-pill:hover {
+            border-color: rgba(139,111,192,.3);
+            background: rgba(139,111,192,.08);
         }
-        .hero-info-item .hi-value {
-            font-family: var(--font-serif);
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--cream);
-        }
+        .hero-pill i { width: 14px; height: 14px; color: var(--purple-soft); }
 
-        .scroll-hint {
-            position: absolute;
-            bottom: 36px;
-            left: 50%;
+        .scroll-cue {
+            position: absolute; bottom: 36px; left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            opacity: 0.4;
-            animation: hintPulse 2.5s ease-in-out infinite;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            opacity: .35; animation: pulse 3s ease-in-out infinite;
         }
-        .scroll-hint span {
-            font-size: 9px;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--cream-mid);
+        .scroll-cue span { font-size: 8px; letter-spacing: .35em; text-transform: uppercase; color: var(--white-3); }
+        .scroll-cue .sc-line { width: 1px; height: 28px; background: linear-gradient(180deg, var(--purple-soft), transparent); }
+        @keyframes pulse { 0%,100%{opacity:.35} 50%{opacity:.55} }
+
+        /* ═══ SPACING ═══ */
+        .sp { padding: 100px 0; }
+        .sp-lg { padding: 130px 0; }
+
+        /* ═══ DIVIDERS ═══ */
+        .divider {
+            display: flex; align-items: center; justify-content: center; padding: 48px 0;
         }
-        .scroll-line {
-            width: 1px;
-            height: 32px;
-            background: linear-gradient(180deg, var(--gold), transparent);
+        .dv-line {
+            flex: 1; max-width: 180px; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139,111,192,.2), transparent);
         }
-        @keyframes hintPulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.7; }
+        .dv-gem {
+            width: 5px; height: 5px; margin: 0 18px;
+            background: var(--purple); transform: rotate(45deg); opacity: .45;
         }
 
-        /* ═══ SECTION SPACING ═══ */
-        .s-pad { padding: 100px 0; }
-        .s-pad-lg { padding: 120px 0; }
-
-        /* ═══ GOLD RULE DIVIDER ═══ */
-        .gold-rule {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-        .gold-rule .line {
-            flex: 1;
-            max-width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
-        }
-        .gold-rule .diamond {
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
-            transform: rotate(45deg);
-            margin: 0 16px;
-            opacity: 0.6;
+        .smoke-div {
+            display: flex; justify-content: center; padding: 48px 0; opacity: .15;
         }
 
-        /* ═══ SMOKE DIVIDER ═══ */
-        .smoke-svg-divider {
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-            opacity: 0.2;
+        /* ═══ SECTION HEADERS ═══ */
+        .sh { text-align: center; max-width: 580px; margin: 0 auto 72px; }
+        .sh-tag {
+            font-size: 9px; font-weight: 400;
+            letter-spacing: .45em; text-transform: uppercase;
+            color: var(--purple-soft); margin-bottom: 18px;
         }
+        .sh h2 {
+            font-family: var(--serif);
+            font-size: clamp(32px,4.5vw,48px);
+            font-weight: 300; line-height: 1.1;
+            color: var(--white); margin-bottom: 16px;
+        }
+        .sh h2 em { font-style: italic; color: var(--purple-soft); }
+        .sh p { font-size: 15px; color: var(--white-3); font-weight: 300; }
 
-        /* ═══ ERLEBNIS SECTION ═══ */
-        .erlebnis { background: var(--surface); }
-        .section-intro {
+        /* ═══ PHILOSOPHY ═══ */
+        .philosophy {
+            background: var(--bg-warm);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .phil-inner {
+            max-width: 720px; margin: 0 auto;
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto 72px;
         }
-        .section-intro .s-label {
-            font-size: 10px;
-            font-weight: 400;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 20px;
+        .phil-inner blockquote {
+            font-family: var(--serif);
+            font-size: clamp(22px,3.5vw,34px);
+            font-weight: 300; font-style: italic;
+            line-height: 1.45; color: var(--white);
+            position: relative; padding: 0 20px;
         }
-        .section-intro h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(30px, 4.5vw, 44px);
-            font-weight: 300;
-            line-height: 1.15;
-            color: var(--cream);
-            margin-bottom: 18px;
+        .phil-inner blockquote::before {
+            content: '»';
+            position: absolute; top: -10px; left: -10px;
+            font-size: 60px; color: var(--purple);
+            opacity: .2; font-style: normal; line-height: 1;
         }
-        .section-intro p {
-            font-size: 15px;
-            color: var(--cream-mid);
-            font-weight: 300;
+        .phil-inner cite {
+            display: block; margin-top: 24px;
+            font-family: var(--sans); font-style: normal;
+            font-size: 10px; letter-spacing: .3em;
+            text-transform: uppercase; color: var(--gold);
         }
 
-        .erlebnis-grid {
+        /* ═══ ERLEBNIS ═══ */
+        .erlebnis { background: var(--surface); }
+        .erl-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
+            gap: 20px;
         }
         .erl-card {
             background: var(--card);
-            padding: 48px 28px 44px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 44px 24px 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.5s ease;
+            position: relative; overflow: hidden;
+            transition: transform .5s cubic-bezier(.16,1,.3,1), border-color .5s, background .5s;
+        }
+        .erl-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139,111,192,.15);
+            background: var(--card-hover);
         }
         .erl-card::before {
             content: '';
-            position: absolute;
-            top: 0; left: 50%; transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background: var(--gold);
-            opacity: 0;
-            transition: opacity 0.5s ease, width 0.5s ease;
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--gold));
+            border-radius: 2px;
+            opacity: 0; transition: opacity .5s, width .5s;
         }
-        .erl-card:hover { background: var(--card-border); }
         .erl-card:hover::before { opacity: 1; width: 60px; }
-        .erl-icon {
-            width: 52px;
-            height: 52px;
-            margin: 0 auto 22px;
-            border: 1px solid rgba(201,168,76,0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.4s, background 0.4s;
+
+        .erl-ic {
+            width: 54px; height: 54px; margin: 0 auto 22px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--purple-sub), var(--gold-sub));
+            border: 1px solid rgba(139,111,192,.1);
+            display: flex; align-items: center; justify-content: center;
+            transition: border-color .4s, background .4s;
         }
-        .erl-card:hover .erl-icon {
-            border-color: rgba(201,168,76,0.4);
-            background: var(--gold-subtle);
+        .erl-card:hover .erl-ic {
+            border-color: rgba(139,111,192,.25);
+            background: linear-gradient(135deg, var(--purple-glow), var(--gold-glow));
         }
-        .erl-icon i { color: var(--gold); width: 22px; height: 22px; }
+        .erl-ic i { color: var(--purple-soft); width: 22px; height: 22px; }
         .erl-card h3 {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            font-weight: 400;
-            color: var(--cream);
-            margin-bottom: 10px;
+            font-family: var(--serif);
+            font-size: 22px; font-weight: 400;
+            color: var(--white); margin-bottom: 10px;
         }
         .erl-card p {
-            font-size: 13px;
-            color: var(--cream-dim);
-            line-height: 1.7;
-            max-width: 220px;
-            margin: 0 auto;
+            font-size: 13px; color: var(--white-4);
+            line-height: 1.75; max-width: 210px; margin: 0 auto;
         }
+        @media (max-width:900px) { .erl-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width:500px) { .erl-grid { grid-template-columns: 1fr; } }
 
-        @media (max-width: 900px) { .erlebnis-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 500px) { .erlebnis-grid { grid-template-columns: 1fr; } }
-
-        /* ═══ GALLERY — CINEMATIC BAND ═══ */
-        .gallery {
+        /* ═══ GALLERY — MASONRY FEEL ═══ */
+        .gallery-section { padding: 0; }
+        .gal-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 3px;
-            height: 420px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 280px 280px;
+            gap: 4px;
         }
-        .gal-item {
-            position: relative;
-            overflow: hidden;
-            cursor: default;
+        .gal-grid .gi:first-child { grid-row: 1 / 3; }
+        .gi {
+            position: relative; overflow: hidden;
         }
-        .gal-item img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
-            filter: brightness(0.6) saturate(0.7);
+        .gi img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(.6) saturate(.65);
+            transition: transform 1.4s cubic-bezier(.16,1,.3,1), filter .8s;
         }
-        .gal-item:hover img {
+        .gi:hover img {
             transform: scale(1.06);
-            filter: brightness(0.75) saturate(0.85);
+            filter: brightness(.72) saturate(.8);
         }
-        .gal-label {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 40px 28px 24px;
-            background: linear-gradient(0deg, rgba(5,5,7,0.8) 0%, transparent 100%);
-            display: flex;
-            flex-direction: column;
+        .gi-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(0deg, rgba(14,11,20,.8) 0%, transparent 50%);
+            display: flex; flex-direction: column;
+            justify-content: flex-end; padding: 28px;
+            opacity: 0; transition: opacity .5s;
         }
-        .gal-label .gl-cat {
-            font-size: 9px;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold);
+        .gi:hover .gi-overlay { opacity: 1; }
+        .gi-tag {
+            font-size: 8px; letter-spacing: .35em;
+            text-transform: uppercase; color: var(--purple-soft);
             margin-bottom: 4px;
         }
-        .gal-label .gl-title {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--cream);
-            font-style: italic;
+        .gi-title {
+            font-family: var(--serif);
+            font-size: 20px; font-weight: 400;
+            font-style: italic; color: var(--white);
         }
-        @media (max-width: 768px) {
-            .gallery { grid-template-columns: 1fr; height: auto; }
-            .gal-item { height: 260px; }
+        @media (max-width:768px) {
+            .gal-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 240px 240px 240px;
+            }
+            .gal-grid .gi:first-child { grid-row: 1 / 2; }
+        }
+        @media (max-width:500px) {
+            .gal-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .gi { height: 260px; }
+            .gi-overlay { opacity: 1; }
         }
 
-        /* ═══ STORY / ABOUT ═══ */
-        .story-layout {
+        /* ═══ STORY ═══ */
+        .story-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 80px; align-items: center;
         }
-        .story-visual {
-            position: relative;
+        .story-vis { position: relative; }
+        .story-main {
+            width: 100%; aspect-ratio: 3/4;
+            object-fit: cover; border-radius: 4px;
+            filter: brightness(.78) saturate(.75);
         }
-        .story-img-main {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            border-radius: 2px;
-            filter: brightness(0.8) saturate(0.8);
-        }
-        .story-img-accent {
+        .story-float {
             position: absolute;
-            bottom: -24px;
-            right: -24px;
-            width: 45%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 2px;
-            border: 3px solid var(--black);
-            filter: brightness(0.85) saturate(0.85);
+            bottom: -24px; right: -24px;
+            width: 44%; aspect-ratio: 1;
+            object-fit: cover; border-radius: 4px;
+            border: 4px solid var(--bg);
+            filter: brightness(.82) saturate(.8);
+            box-shadow: 0 20px 60px rgba(0,0,0,.4);
         }
-        .story-gold-line {
-            position: absolute;
-            top: -16px;
-            left: -16px;
-            width: 60px;
-            height: 60px;
-            border-top: 1px solid var(--gold);
-            border-left: 1px solid var(--gold);
-            opacity: 0.4;
+        .story-corner {
+            position: absolute; top: -16px; left: -16px;
+            width: 56px; height: 56px;
+            border-top: 1px solid var(--purple);
+            border-left: 1px solid var(--purple);
+            opacity: .25;
         }
-        .story-text .s-label {
-            font-size: 10px;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-        .story-text h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 300;
-            line-height: 1.2;
-            color: var(--cream);
-            margin-bottom: 24px;
-        }
-        .story-text h2 em { font-style: italic; color: var(--gold); }
-        .story-text p {
-            font-size: 15px;
-            color: var(--cream-mid);
-            margin-bottom: 18px;
-            font-weight: 300;
-        }
-        .story-text p:last-of-type { margin-bottom: 0; }
-        .story-quote {
-            margin-top: 36px;
-            padding-top: 28px;
-            border-top: 1px solid rgba(201,168,76,0.1);
-        }
-        .story-quote blockquote {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--cream);
-            line-height: 1.5;
-        }
-        .story-quote cite {
-            display: block;
-            font-family: var(--font-sans);
-            font-style: normal;
-            font-size: 11px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-top: 12px;
+        .story-glow {
+            position: absolute; top: 20%; left: -30%;
+            width: 160%; height: 60%;
+            background: radial-gradient(ellipse, rgba(139,111,192,.06) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        @media (max-width: 900px) {
-            .story-layout { grid-template-columns: 1fr; gap: 48px; }
-            .story-visual { max-width: 420px; margin: 0 auto; }
-            .story-img-accent { right: -12px; bottom: -12px; }
+        .story-txt .sh-tag { text-align: left; margin-bottom: 18px; }
+        .story-txt h2 {
+            font-family: var(--serif);
+            font-size: clamp(30px,4.2vw,44px);
+            font-weight: 300; line-height: 1.12;
+            color: var(--white); margin-bottom: 26px;
+        }
+        .story-txt h2 em { font-style: italic; color: var(--purple-soft); }
+        .story-txt p {
+            font-size: 15px; color: var(--white-3);
+            font-weight: 300; margin-bottom: 16px;
+        }
+        .story-txt p:last-of-type { margin-bottom: 0; }
+        @media (max-width:900px) {
+            .story-grid { grid-template-columns: 1fr; gap: 48px; }
+            .story-vis { max-width: 420px; margin: 0 auto; }
         }
 
-        /* ═══ HOURS — MINIMAL ═══ */
-        .hours { background: var(--surface); }
-        .hours-grid {
+        /* ═══ HIGHLIGHTS ═══ */
+        .highlights {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .hl-grid {
             display: grid;
-            grid-template-columns: 1fr 1px 1fr;
-            gap: 60px;
-            max-width: 800px;
-            margin: 0 auto;
-            align-items: start;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
-        .hours-divider {
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, rgba(201,168,76,0.2), transparent);
+        .hl-item { text-align: center; }
+        .hl-num {
+            font-family: var(--serif);
+            font-size: 48px; font-weight: 300;
+            background: linear-gradient(135deg, var(--purple-soft), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1; margin-bottom: 8px;
         }
-        .hours-col h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
-            color: var(--cream);
-            margin-bottom: 28px;
+        .hl-label {
+            font-size: 12px; font-weight: 400;
+            color: var(--white-3);
+            letter-spacing: .06em;
         }
-        .hours-list { display: flex; flex-direction: column; gap: 0; }
-        .h-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
-        .h-row:last-child { border-bottom: none; }
-        .h-row .day { font-size: 14px; color: var(--cream-mid); font-weight: 300; }
-        .h-row .time { font-size: 14px; color: var(--cream); font-weight: 400; }
-        .h-row.weekend .day { color: var(--gold); }
-        .h-row.weekend .time { color: var(--gold); }
+        @media (max-width:600px) { .hl-grid { grid-template-columns: 1fr; gap: 32px; } }
 
-        .hours-right { text-align: center; }
-        .hours-right h3 { margin-bottom: 20px; }
-        .find-us-details {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: left;
+        /* ═══ EVENTS ═══ */
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 64px; align-items: center;
         }
-        .fu-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
+        .events-txt .sh-tag { text-align: left; margin-bottom: 18px; }
+        .events-txt h2 {
+            font-family: var(--serif);
+            font-size: clamp(28px,4vw,40px);
+            font-weight: 300; line-height: 1.15;
+            color: var(--white); margin-bottom: 20px;
         }
-        .fu-icon {
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            border: 1px solid rgba(201,168,76,0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .events-txt h2 em { font-style: italic; color: var(--purple-soft); }
+        .events-txt p {
+            font-size: 15px; color: var(--white-3);
+            font-weight: 300; margin-bottom: 32px;
+        }
+        .ev-features { display: flex; flex-direction: column; gap: 16px; }
+        .ev-feat {
+            display: flex; align-items: center; gap: 14px;
+        }
+        .ev-ic {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: var(--purple-sub);
+            border: 1px solid rgba(139,111,192,.1);
+            display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-        .fu-icon i { color: var(--gold); width: 16px; height: 16px; }
-        .fu-text { display: flex; flex-direction: column; }
-        .fu-text .fl { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--cream-dim); margin-bottom: 2px; }
-        .fu-text span:last-child { font-size: 14px; color: var(--cream); }
-        .fu-text a { font-size: 14px; color: var(--cream); text-decoration: none; transition: color 0.3s; }
-        .fu-text a:hover { color: var(--gold); }
+        .ev-ic i { color: var(--purple-soft); width: 18px; height: 18px; }
+        .ev-feat span { font-size: 14px; color: var(--white-2); }
 
-        @media (max-width: 768px) {
-            .hours-grid { grid-template-columns: 1fr; gap: 48px; }
-            .hours-divider { display: none; }
+        .events-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+        .events-card img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(.5) saturate(.6);
+        }
+        .events-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(0deg, rgba(14,11,20,.85) 0%, transparent 60%);
+            display: flex; flex-direction: column;
+            justify-content: flex-end; padding: 36px;
+        }
+        .ec-badge {
+            display: inline-flex; align-self: flex-start;
+            padding: 5px 14px; border-radius: 100px;
+            background: rgba(139,111,192,.15);
+            border: 1px solid rgba(139,111,192,.2);
+            font-size: 10px; font-weight: 500;
+            letter-spacing: .12em; text-transform: uppercase;
+            color: var(--purple-soft); margin-bottom: 12px;
+        }
+        .ec-title {
+            font-family: var(--serif);
+            font-size: 28px; font-weight: 400;
+            color: var(--white); margin-bottom: 8px;
+        }
+        .ec-desc { font-size: 13px; color: var(--white-3); }
+        @media (max-width:900px) {
+            .events-grid { grid-template-columns: 1fr; gap: 40px; }
+            .events-card { max-width: 400px; }
         }
 
-        /* ═══ SOCIAL STRIP ═══ */
-        .social-strip {
-            padding: 80px 0;
-            text-align: center;
+        /* ═══ HOURS + CONTACT ═══ */
+        .hours { background: var(--surface); }
+        .hours-inner {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 64px; max-width: 800px; margin: 0 auto;
         }
-        .social-strip .s-label {
-            font-size: 10px;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 20px;
+        .hours-sep {
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(139,111,192,.12), transparent);
         }
-        .social-strip h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(26px, 4vw, 36px);
-            font-weight: 300;
-            color: var(--cream);
-            margin-bottom: 40px;
+        .h-col h3 {
+            font-family: var(--serif);
+            font-size: 26px; font-weight: 400;
+            color: var(--white); margin-bottom: 28px;
         }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .h-list { display: flex; flex-direction: column; }
+        .h-row {
+            display: flex; justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,.025);
         }
-        .soc-link {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            border: 1px solid rgba(201,168,76,0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .h-row:last-child { border-bottom: none; }
+        .h-row .day { font-size: 14px; color: var(--white-3); font-weight: 300; }
+        .h-row .time { font-size: 14px; color: var(--white); font-weight: 400; }
+        .h-row.wk .day { color: var(--purple-soft); }
+        .h-row.wk .time { color: var(--purple-soft); font-weight: 500; }
+
+        .find-list { display: flex; flex-direction: column; gap: 22px; }
+        .fi { display: flex; align-items: flex-start; gap: 14px; }
+        .fi-ic {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: var(--purple-sub);
+            border: 1px solid rgba(139,111,192,.08);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .fi-ic i { color: var(--purple-soft); width: 16px; height: 16px; }
+        .fi-txt { display: flex; flex-direction: column; }
+        .fi-lbl {
+            font-size: 8px; letter-spacing: .3em;
+            text-transform: uppercase; color: var(--white-4);
+            margin-bottom: 3px;
+        }
+        .fi-txt span:last-child, .fi-txt a {
+            font-size: 14px; color: var(--white);
+            text-decoration: none; transition: color .3s;
+        }
+        .fi-txt a:hover { color: var(--purple-soft); }
+        @media (max-width:768px) {
+            .hours-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hours-sep { display: none; }
+        }
+
+        /* ═══ SOCIAL ═══ */
+        .social { padding: 90px 0; text-align: center; }
+        .social .sh-tag { margin-bottom: 16px; }
+        .social h2 {
+            font-family: var(--serif);
+            font-size: clamp(26px,4vw,38px);
+            font-weight: 300; color: var(--white);
+            margin-bottom: 36px;
+        }
+        .soc-row { display: flex; justify-content: center; gap: 16px; }
+        .soc-a {
+            width: 54px; height: 54px;
+            border-radius: 16px;
+            border: 1px solid rgba(139,111,192,.1);
+            display: flex; align-items: center; justify-content: center;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: all .4s cubic-bezier(.16,1,.3,1);
         }
-        .soc-link i { color: var(--cream-mid); width: 20px; height: 20px; transition: color 0.4s; }
-        .soc-link:hover {
-            border-color: var(--gold);
-            background: var(--gold-subtle);
+        .soc-a i { color: var(--white-3); width: 20px; height: 20px; transition: color .4s; }
+        .soc-a:hover {
+            border-color: var(--purple);
+            background: var(--purple-sub);
             transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(139,111,192,.12);
         }
-        .soc-link:hover i { color: var(--gold); }
+        .soc-a:hover i { color: var(--purple-soft); }
 
         /* ═══ MAP ═══ */
-        .map-section {
-            position: relative;
-            height: 380px;
-            overflow: hidden;
+        .map { position: relative; height: 380px; overflow: hidden; }
+        .map iframe {
+            width: 100%; height: 100%; border: none;
+            filter: brightness(.45) contrast(1.2) saturate(0) sepia(.08) hue-rotate(220deg);
         }
-        .map-section iframe {
-            width: 100%; height: 100%;
-            border: none;
-            filter: brightness(0.55) contrast(1.2) saturate(0) sepia(0.15);
+        .map-ft, .map-fb {
+            position: absolute; left: 0; right: 0; height: 100px;
+            pointer-events: none; z-index: 2;
         }
-        .map-fade-top,
-        .map-fade-bottom {
-            position: absolute;
-            left: 0; right: 0;
-            height: 80px;
-            pointer-events: none;
-            z-index: 2;
-        }
-        .map-fade-top { top: 0; background: linear-gradient(180deg, var(--black), transparent); }
-        .map-fade-bottom { bottom: 0; background: linear-gradient(0deg, var(--black), transparent); }
+        .map-ft { top: 0; background: linear-gradient(180deg, var(--bg), transparent); }
+        .map-fb { bottom: 0; background: linear-gradient(0deg, var(--bg), transparent); }
 
         /* ═══ FOOTER ═══ */
-        footer {
-            padding: 48px 0 36px;
-            text-align: center;
+        footer { padding: 48px 0 36px; text-align: center; }
+        .ft-logo { margin-bottom: 24px; }
+        .ft-logo .logo-svg { height: 28px; opacity: .45; }
+        .ft-links {
+            display: flex; justify-content: center;
+            gap: 24px; margin-bottom: 28px; flex-wrap: wrap;
         }
-        .footer-logo { margin-bottom: 24px; }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
+        .ft-links a {
+            font-size: 10px; letter-spacing: .18em;
+            text-transform: uppercase; color: var(--white-4);
+            text-decoration: none; transition: color .3s;
         }
-        .footer-links a {
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--cream-dim);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--gold); }
-        .footer-copy {
-            font-size: 11px;
-            color: var(--cream-dim);
-            opacity: 0.5;
-        }
-        .footer-copy a { color: var(--gold); text-decoration: none; opacity: 1; }
+        .ft-links a:hover { color: var(--purple-soft); }
+        .ft-copy { font-size: 11px; color: var(--white-4); opacity: .35; }
+        .ft-copy a { color: var(--gold); text-decoration: none; opacity: 1; }
 
-        /* ═══ WHATSAPP FLOAT ═══ */
-        .wa-float {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            z-index: 90;
-            width: 52px;
-            height: 52px;
-            background: rgba(37, 211, 102, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* ═══ WHATSAPP ═══ */
+        .wa {
+            position: fixed; bottom: 28px; right: 28px;
+            z-index: 90; width: 52px; height: 52px;
+            background: rgba(37,211,102,.9);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
             text-decoration: none;
-            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.25);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(37,211,102,.2);
+            transition: transform .3s, box-shadow .3s;
         }
-        .wa-float:hover {
-            transform: scale(1.08);
-            box-shadow: 0 6px 32px rgba(37, 211, 102, 0.4);
-        }
-        .wa-float svg { width: 24px; height: 24px; fill: white; }
+        .wa:hover { transform: scale(1.06); box-shadow: 0 6px 28px rgba(37,211,102,.3); }
+        .wa svg { width: 24px; height: 24px; fill: #fff; }
 
         /* ═══ RESPONSIVE ═══ */
-        @media (max-width: 500px) {
-            .hero h1 { font-size: 34px; }
-            .s-pad { padding: 70px 0; }
-            .s-pad-lg { padding: 80px 0; }
-            .hero-info { gap: 24px; }
-            .erl-card { padding: 36px 24px; }
+        @media (max-width:500px) {
+            .hero h1 { font-size: 36px; }
+            .sp { padding: 72px 0; }
+            .sp-lg { padding: 90px 0; }
+            .hero-pills { gap: 8px; }
+            .hero-pill { padding: 7px 14px; font-size: 11px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Ambient glow layer -->
-    <div class="smoke-atmosphere"></div>
+    <div class="ambient"></div>
 
     <!-- ═══ HEADER ═══ -->
     <header id="hdr">
         <div class="wrap">
-            <a href="#" class="logo-mark">
-                <!-- 
-                    LOGO PLATZHALTER — Ersetze das SVG unten durch:
-                    <img src="pfad/zum/zuma-logo.png" alt="ZUMA Lounge" style="height:38px;">
-                -->
-                <svg class="logo-svg" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="21" cy="21" r="20" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="0.8"/>
-                    <path d="M14 15 C14 15, 18 22, 21 28 C24 22, 28 15, 28 15" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-                    <path d="M17 12 C17 12, 19 18, 21 24 C23 18, 25 12, 25 12" fill="none" stroke="var(--gold)" stroke-width="0.6" stroke-linecap="round" opacity="0.4"/>
+            <a href="#" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 260 55" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Z — geometric angular -->
+                    <path class="l-white" d="M4 8 L30 8 L4 36 L30 36"/>
+                    <!-- u — lowercase, rounded, gold -->
+                    <path class="l-gold" d="M46 16 L46 30 C46 36 52 40 58 40 C64 40 70 36 70 30 L70 16"/>
+                    <!-- M — sharp angular peaks -->
+                    <path class="l-white" d="M86 36 L86 8 L101 28 L116 8 L116 36"/>
+                    <!-- A — pointed, no crossbar -->
+                    <path class="l-white" d="M132 36 L147 8 L162 36"/>
+                    <!-- —LOUNGE— -->
+                    <line class="l-dash" x1="52" y1="50" x2="68" y2="50"/>
+                    <text class="l-txt" x="113" y="52" text-anchor="middle" font-size="8.5">LOUNGE</text>
+                    <line class="l-dash" x1="148" y1="50" x2="164" y2="50"/>
                 </svg>
-                <div class="logo-text">
-                    <span class="name">ZUMA</span>
-                    <span class="sub">Lounge · Geilenkirchen</span>
-                </div>
             </a>
             <nav>
-                <a href="#erlebnis" class="nav-hide">Erlebnis</a>
-                <a href="#story" class="nav-hide">Story</a>
-                <a href="#zeiten" class="nav-hide">Öffnungszeiten</a>
+                <a href="#erlebnis" class="hm">Erlebnis</a>
+                <a href="#story" class="hm">Story</a>
+                <a href="#events" class="hm">Events</a>
+                <a href="#zeiten" class="hm">Zeiten</a>
                 <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener">Instagram</a>
             </nav>
         </div>
@@ -830,185 +743,253 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1800&q=80" alt="ZUMA Lounge — dunkle Atmosphäre mit warmer Beleuchtung" loading="eager">
+            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1800&q=80" alt="ZUMA Lounge — Atmosphäre bei Nacht" loading="eager">
         </div>
-        <div class="hero-overlay"></div>
+        <div class="hero-vig"></div>
+        <div class="wisp w1"></div>
+        <div class="wisp w2"></div>
+        <div class="wisp w3"></div>
 
-        <!-- Animated smoke wisps -->
-        <div class="smoke-wisp"></div>
-        <div class="smoke-wisp"></div>
-        <div class="smoke-wisp"></div>
-
-        <div class="hero-content">
-            <div class="hero-label rv rv-d1 v">Shisha · Cocktails · Vibes</div>
-            <h1 class="rv rv-d2 v">Dein Abend<br>beginnt <em>hier.</em></h1>
-            <p class="hero-sub rv rv-d3 v">Premium Shisha, handgemachte Cocktails und ein Ambiente,<br>das du so schnell nicht vergisst.</p>
-            <div class="hero-info rv rv-d4 v">
-                <div class="hero-info-item">
-                    <span class="hi-label">Täglich</span>
-                    <span class="hi-value">Ab 18 Uhr</span>
-                </div>
-                <div class="hero-info-item">
-                    <span class="hi-label">Wochenende</span>
-                    <span class="hi-value">Bis 2 Uhr</span>
-                </div>
-                <div class="hero-info-item">
-                    <span class="hi-label">Location</span>
-                    <span class="hi-value">Geilenkirchen</span>
-                </div>
+        <div class="hero-inner">
+            <div class="hero-tag rv v">
+                <span class="ht-line"></span>
+                Shisha · Cocktails · Vibes
+                <span class="ht-line"></span>
+            </div>
+            <h1 class="rv d1 v">Dein Abend<br>beginnt <em>hier.</em></h1>
+            <p class="hero-sub rv d2 v">Premium Shisha, handgemachte Cocktails und ein Ambiente,<br>das du so schnell nicht vergisst. Mitten in Geilenkirchen.</p>
+            <div class="hero-pills rv d3 v">
+                <span class="hero-pill"><i data-lucide="clock"></i> Täglich ab 18 Uhr</span>
+                <span class="hero-pill"><i data-lucide="calendar"></i> Fr & Sa bis 2 Uhr</span>
+                <span class="hero-pill"><i data-lucide="map-pin"></i> Geilenkirchen</span>
             </div>
         </div>
 
-        <div class="scroll-hint">
+        <div class="scroll-cue">
             <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <div class="sc-line"></div>
         </div>
     </section>
 
-    <!-- ═══ GOLD RULE ═══ -->
-    <div class="gold-rule" style="padding: 40px 0;">
-        <div class="line"></div>
-        <div class="diamond"></div>
-        <div class="line"></div>
-    </div>
+    <!-- ═══ PHILOSOPHY ═══ -->
+    <section class="philosophy sp">
+        <div class="wrap-narrow">
+            <div class="phil-inner rv">
+                <blockquote>Atmosphäre ist kein Zufall — sie ist Handwerk. Jedes Detail, vom Licht über die Musik bis zum letzten Cocktail, ist bei uns bewusst gewählt.</blockquote>
+                <cite>— Die Philosophie hinter ZUMA</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ DIVIDER ═══ -->
+    <div class="divider"><div class="dv-line"></div><div class="dv-gem"></div><div class="dv-line"></div></div>
 
     <!-- ═══ ERLEBNIS ═══ -->
-    <section id="erlebnis" class="erlebnis s-pad">
+    <section id="erlebnis" class="erlebnis sp">
         <div class="wrap">
-            <div class="section-intro rv">
-                <div class="s-label">Was dich erwartet</div>
-                <h2>Vier Sinne.<br>Ein Abend.</h2>
-                <p>Jeder Besuch bei ZUMA ist ein Erlebnis aus Geschmack, Duft, Sound und Atmosphäre.</p>
+            <div class="sh rv">
+                <div class="sh-tag">Was dich erwartet</div>
+                <h2>Vier Sinne.<br>Ein <em>Abend.</em></h2>
+                <p>Jeder Besuch bei ZUMA ist ein Zusammenspiel aus Geschmack, Duft, Sound und Atmosphäre.</p>
             </div>
-            <div class="erlebnis-grid">
-                <div class="erl-card rv rv-d1">
-                    <div class="erl-icon"><i data-lucide="wind"></i></div>
-                    <h3>Shisha</h3>
-                    <p>Aromatische Pfeifen aus den besten Tabaksorten — sorgfältig zubereitet, perfekt im Zug.</p>
+            <div class="erl-grid">
+                <div class="erl-card rv d1">
+                    <div class="erl-ic"><i data-lucide="wind"></i></div>
+                    <h3>Premium Shisha</h3>
+                    <p>Aromatische Pfeifen aus erlesenen Tabaksorten — sorgfältig zubereitet, perfekt im Zug.</p>
                 </div>
-                <div class="erl-card rv rv-d2">
-                    <div class="erl-icon"><i data-lucide="wine"></i></div>
+                <div class="erl-card rv d2">
+                    <div class="erl-ic"><i data-lucide="wine"></i></div>
                     <h3>Cocktails</h3>
-                    <p>Von klassisch bis kreativ — frisch gemixt mit Liebe zum Detail und den besten Zutaten.</p>
+                    <p>Von klassisch bis kreativ — frisch gemixt mit Liebe zum Detail und erstklassigen Zutaten.</p>
                 </div>
-                <div class="erl-card rv rv-d3">
-                    <div class="erl-icon"><i data-lucide="candy"></i></div>
+                <div class="erl-card rv d3">
+                    <div class="erl-ic"><i data-lucide="candy"></i></div>
                     <h3>Candy Bar</h3>
-                    <p>Milchshakes, Sweets und süße Versuchungen — für alle, die es gerne etwas anders mögen.</p>
+                    <p>Milchshakes, handverlesene Sweets und süße Versuchungen für besondere Momente.</p>
                 </div>
-                <div class="erl-card rv rv-d4">
-                    <div class="erl-icon"><i data-lucide="headphones"></i></div>
-                    <h3>Live DJ</h3>
-                    <p>Regelmäßige DJ-Performances die den Vibe auf ein neues Level heben. Jeden Freitag & Samstag.</p>
+                <div class="erl-card rv d4">
+                    <div class="erl-ic"><i data-lucide="music"></i></div>
+                    <h3>Musik</h3>
+                    <p>R&B, Hip Hop, Afrobeats & orientalische Sounds — der perfekte Soundtrack für deinen Abend.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ GALLERY BAND ═══ -->
-    <section class="gallery">
-        <div class="gal-item rv">
-            <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=900&q=80" alt="ZUMA Lounge Interieur — edle Sitzlandschaft mit gedimmtem Licht" loading="lazy">
-            <div class="gal-label">
-                <span class="gl-cat">Atmosphäre</span>
-                <span class="gl-title">Edles Ambiente</span>
+    <!-- ═══ GALLERY ═══ -->
+    <section class="gallery-section">
+        <div class="gal-grid">
+            <div class="gi rv">
+                <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=1000&q=80" alt="ZUMA Lounge — edle Lounge-Atmosphäre" loading="lazy">
+                <div class="gi-overlay">
+                    <div class="gi-tag">Atmosphäre</div>
+                    <div class="gi-title">Edles Ambiente</div>
+                </div>
             </div>
-        </div>
-        <div class="gal-item rv rv-d2">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80" alt="Handgemixte Cocktails an der Bar" loading="lazy">
-            <div class="gal-label">
-                <span class="gl-cat">Drinks</span>
-                <span class="gl-title">Handgemacht</span>
+            <div class="gi rv d2">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" alt="Handgemachte Cocktails" loading="lazy">
+                <div class="gi-overlay">
+                    <div class="gi-tag">Drinks</div>
+                    <div class="gi-title">Handgemacht</div>
+                </div>
             </div>
-        </div>
-        <div class="gal-item rv rv-d4">
-            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80" alt="Lounge Nacht-Atmosphäre" loading="lazy">
-            <div class="gal-label">
-                <span class="gl-cat">Nights</span>
-                <span class="gl-title">Unvergesslich</span>
+            <div class="gi rv d3">
+                <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" alt="Bar Atmosphäre bei Nacht" loading="lazy">
+                <div class="gi-overlay">
+                    <div class="gi-tag">Nights</div>
+                    <div class="gi-title">Unvergesslich</div>
+                </div>
+            </div>
+            <div class="gi rv d4">
+                <img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?w=800&q=80" alt="Premium Getränke" loading="lazy">
+                <div class="gi-overlay">
+                    <div class="gi-tag">Vibes</div>
+                    <div class="gi-title">Bis in die Nacht</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ═══ SMOKE DIVIDER ═══ -->
-    <div class="smoke-svg-divider" style="padding: 50px 0;">
-        <svg width="240" height="40" viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 20 C20 20, 30 8, 50 14 C70 20, 65 32, 90 22 C115 12, 110 30, 140 20 C160 13, 170 28, 195 20 C210 15, 225 20, 240 20" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.8" stroke-linecap="round"/>
+    <div class="smoke-div">
+        <svg width="240" height="30" viewBox="0 0 240 30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 15 C20 15,30 5,50 10 C70 15,62 25,88 17 C114 9,108 24,135 15 C152 9,162 22,185 15 C200 10,220 15,240 15" fill="none" stroke="rgba(139,111,192,.4)" stroke-width=".7" stroke-linecap="round"/>
         </svg>
     </div>
 
     <!-- ═══ STORY ═══ -->
-    <section id="story" class="s-pad">
+    <section id="story" class="sp-lg">
         <div class="wrap">
-            <div class="story-layout">
-                <div class="story-visual rv">
-                    <div class="story-gold-line"></div>
-                    <img class="story-img-main" src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80" alt="ZUMA Lounge — warme Atmosphäre bei Nacht" loading="lazy">
-                    <img class="story-img-accent" src="https://images.unsplash.com/photo-1560512823-829485b8bf24?w=500&q=80" alt="Shisha Rauch — goldene Details" loading="lazy">
+            <div class="story-grid">
+                <div class="story-vis rv">
+                    <div class="story-glow"></div>
+                    <div class="story-corner"></div>
+                    <img class="story-main" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=900&q=80" alt="ZUMA Lounge Innenraum" loading="lazy">
+                    <img class="story-float" src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=500&q=80" alt="ZUMA Lounge Details" loading="lazy">
                 </div>
-                <div class="story-text rv rv-d2">
-                    <div class="s-label">Die Geschichte</div>
-                    <h2>Mehr als eine Bar.<br>Ein <em>Gefühl.</em></h2>
-                    <p>ZUMA ist der Ort, an dem dein Abend beginnt und die Zeit stehen bleibt. Hier triffst du Freunde, entdeckst neue Geschmäcker und lässt den Alltag draußen — in einem Ambiente, das du so in Geilenkirchen nicht erwartest.</p>
-                    <p>Jedes Detail ist bewusst gewählt. Vom Licht über die Musik bis zum letzten Cocktail. Weil wir glauben, dass Atmosphäre kein Zufall ist — sondern Handwerk.</p>
-                    <div class="story-quote">
-                        <blockquote>»Der perfekte Ort, um sich mit Freunden zu treffen und das ultimative Erlebnis zu genießen.«</blockquote>
-                        <cite>— ZUMA Lounge</cite>
+                <div class="story-txt rv d2">
+                    <div class="sh-tag">Die Geschichte</div>
+                    <h2>Mehr als eine Lounge.<br>Ein <em>Gefühl.</em></h2>
+                    <p>ZUMA ist der Ort, an dem dein Abend beginnt und die Zeit aufhört zu existieren. Hier triffst du Freunde, entdeckst neue Geschmäcker und lässt den Alltag komplett hinter dir.</p>
+                    <p>In einem Ambiente, das du so in Geilenkirchen nicht erwartest. Von der Auswahl unserer Tabake über die Komposition unserer Cocktails bis hin zur Musik — bei uns ist nichts dem Zufall überlassen.</p>
+                    <p>ZUMA ist das Ergebnis einer einfachen Überzeugung: Geilenkirchen verdient einen Ort, an dem Premium-Qualität auf echte Gastfreundschaft trifft.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ HIGHLIGHTS ═══ -->
+    <section class="highlights sp">
+        <div class="wrap">
+            <div class="hl-grid">
+                <div class="hl-item rv d1">
+                    <div class="hl-num">7</div>
+                    <div class="hl-label">Tage die Woche für dich da</div>
+                </div>
+                <div class="hl-item rv d2">
+                    <div class="hl-num">1.200+</div>
+                    <div class="hl-label">Follower auf Instagram</div>
+                </div>
+                <div class="hl-item rv d3">
+                    <div class="hl-num">∞</div>
+                    <div class="hl-label">Vibes pro Abend</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ DIVIDER ═══ -->
+    <div class="divider"><div class="dv-line"></div><div class="dv-gem"></div><div class="dv-line"></div></div>
+
+    <!-- ═══ EVENTS ═══ -->
+    <section id="events" class="sp-lg">
+        <div class="wrap">
+            <div class="events-grid">
+                <div class="events-txt rv">
+                    <div class="sh-tag">Events & Specials</div>
+                    <h2>Jeder Abend besonders.<br>Am Wochenende <em>magisch.</em></h2>
+                    <p>Ob entspannter Dienstagabend oder ausgelassene Freitagnacht — bei ZUMA hat jeder Abend seinen eigenen Charakter. R&B, Hip Hop, Afrobeats und orientalische Sounds setzen den Soundtrack für unvergessliche Nächte.</p>
+                    <div class="ev-features">
+                        <div class="ev-feat">
+                            <div class="ev-ic"><i data-lucide="music"></i></div>
+                            <span>R&B · Hip Hop · Afrobeats · Oriental</span>
+                        </div>
+                        <div class="ev-feat">
+                            <div class="ev-ic"><i data-lucide="users"></i></div>
+                            <span>Private Feiern & Gruppenreservierungen</span>
+                        </div>
+                        <div class="ev-feat">
+                            <div class="ev-ic"><i data-lucide="sparkles"></i></div>
+                            <span>Themenabende & Special Events</span>
+                        </div>
+                        <div class="ev-feat">
+                            <div class="ev-ic"><i data-lucide="instagram"></i></div>
+                            <span>Folge @zuma.lounge für alle Termine</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="events-card rv d3">
+                    <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=800&q=80" alt="ZUMA Lounge Musik & Vibes" loading="lazy">
+                    <div class="events-card-overlay">
+                        <span class="ec-badge">Jeden Abend</span>
+                        <div class="ec-title">Sound & Vibes</div>
+                        <div class="ec-desc">R&B · Hip Hop · Afrobeats · Oriental</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ GOLD RULE ═══ -->
-    <div class="gold-rule" style="padding: 20px 0;">
-        <div class="line"></div>
-        <div class="diamond"></div>
-        <div class="line"></div>
+    <!-- ═══ SMOKE DIVIDER ═══ -->
+    <div class="smoke-div">
+        <svg width="240" height="30" viewBox="0 0 240 30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 15 C25 22,45 6,68 13 C91 20,88 8,115 15 C135 20,148 7,175 14 C195 19,215 12,240 15" fill="none" stroke="rgba(181,161,108,.4)" stroke-width=".7" stroke-linecap="round"/>
+        </svg>
     </div>
 
-    <!-- ═══ ÖFFNUNGSZEITEN + KONTAKT ═══ -->
-    <section id="zeiten" class="hours s-pad-lg">
+    <!-- ═══ HOURS + FIND US ═══ -->
+    <section id="zeiten" class="hours sp-lg">
         <div class="wrap">
-            <div class="section-intro rv">
-                <div class="s-label">Wann & Wo</div>
-                <h2>Komm vorbei.</h2>
+            <div class="sh rv">
+                <div class="sh-tag">Wann & Wo</div>
+                <h2>Komm <em>vorbei.</em></h2>
             </div>
-            <div class="hours-grid">
-                <div class="rv">
+            <div class="hours-inner">
+                <div class="h-col rv">
                     <h3>Öffnungszeiten</h3>
-                    <div class="hours-list">
+                    <div class="h-list">
                         <div class="h-row"><span class="day">Montag</span><span class="time">18 – 00 Uhr</span></div>
                         <div class="h-row"><span class="day">Dienstag</span><span class="time">18 – 00 Uhr</span></div>
                         <div class="h-row"><span class="day">Mittwoch</span><span class="time">18 – 00 Uhr</span></div>
                         <div class="h-row"><span class="day">Donnerstag</span><span class="time">18 – 00 Uhr</span></div>
-                        <div class="h-row weekend"><span class="day">Freitag</span><span class="time">18 – 02 Uhr</span></div>
-                        <div class="h-row weekend"><span class="day">Samstag</span><span class="time">18 – 02 Uhr</span></div>
+                        <div class="h-row wk"><span class="day">Freitag</span><span class="time">18 – 02 Uhr</span></div>
+                        <div class="h-row wk"><span class="day">Samstag</span><span class="time">18 – 02 Uhr</span></div>
                         <div class="h-row"><span class="day">Sonntag</span><span class="time">18 – 00 Uhr</span></div>
                     </div>
                 </div>
-                <div class="hours-divider"></div>
-                <div class="hours-right rv rv-d3">
+                <div class="hours-sep"></div>
+                <div class="rv d2">
                     <h3>Find uns</h3>
-                    <div class="find-us-details">
-                        <div class="fu-item">
-                            <div class="fu-icon"><i data-lucide="map-pin"></i></div>
-                            <div class="fu-text">
-                                <span class="fl">Adresse</span>
+                    <div class="find-list">
+                        <div class="fi">
+                            <div class="fi-ic"><i data-lucide="map-pin"></i></div>
+                            <div class="fi-txt">
+                                <span class="fi-lbl">Adresse</span>
                                 <span>Heinsberger Str. 77<br>52511 Geilenkirchen</span>
                             </div>
                         </div>
-                        <div class="fu-item">
-                            <div class="fu-icon"><i data-lucide="phone"></i></div>
-                            <div class="fu-text">
-                                <span class="fl">Telefon</span>
+                        <div class="fi">
+                            <div class="fi-ic"><i data-lucide="phone"></i></div>
+                            <div class="fi-txt">
+                                <span class="fi-lbl">Telefon</span>
                                 <a href="tel:+491712112348">0171 211 23 48</a>
                             </div>
                         </div>
-                        <div class="fu-item">
-                            <div class="fu-icon"><i data-lucide="message-circle"></i></div>
-                            <div class="fu-text">
-                                <span class="fl">WhatsApp</span>
+                        <div class="fi">
+                            <div class="fi-ic"><i data-lucide="message-circle"></i></div>
+                            <div class="fi-txt">
+                                <span class="fi-lbl">WhatsApp</span>
                                 <a href="https://wa.me/491712112348">Schreib uns direkt</a>
                             </div>
                         </div>
@@ -1018,120 +999,89 @@
         </div>
     </section>
 
-    <!-- ═══ SOCIAL STRIP ═══ -->
-    <section class="social-strip">
+    <!-- ═══ SOCIAL ═══ -->
+    <section class="social">
         <div class="wrap">
-            <div class="s-label rv">Folge uns</div>
-            <h2 class="rv rv-d1">Bleib in der Loop.</h2>
-            <div class="social-icons rv rv-d2">
-                <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener" class="soc-link" aria-label="Instagram">
-                    <i data-lucide="instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/zumaloungee.gk/" target="_blank" rel="noopener" class="soc-link" aria-label="Facebook">
-                    <i data-lucide="facebook"></i>
-                </a>
-                <a href="https://www.tiktok.com/@zuma.lounge" target="_blank" rel="noopener" class="soc-link" aria-label="TikTok">
-                    <i data-lucide="music-2"></i>
-                </a>
-                <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="soc-link" aria-label="WhatsApp">
-                    <i data-lucide="message-circle"></i>
-                </a>
+            <div class="sh-tag rv">Folge uns</div>
+            <h2 class="rv d1">Bleib in der Loop.</h2>
+            <div class="soc-row rv d2">
+                <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener" class="soc-a" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="https://www.facebook.com/zumaloungee.gk/" target="_blank" rel="noopener" class="soc-a" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                <a href="https://www.tiktok.com/@zuma.lounge" target="_blank" rel="noopener" class="soc-a" aria-label="TikTok"><i data-lucide="music-2"></i></a>
+                <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="soc-a" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
             </div>
         </div>
     </section>
 
     <!-- ═══ MAP ═══ -->
-    <section class="map-section">
-        <div class="map-fade-top"></div>
+    <section class="map">
+        <div class="map-ft"></div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2510.5!2d6.1189!3d50.9656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf5e7c2c3f8b3d%3A0x0!2sHeinsberger+Str.+77%2C+52511+Geilenkirchen!5e0!3m2!1sde!2sde!4v1" allowfullscreen loading="lazy" title="ZUMA Lounge Standort"></iframe>
-        <div class="map-fade-bottom"></div>
+        <div class="map-fb"></div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
     <footer>
         <div class="wrap">
-            <div class="footer-logo">
-                <a href="#" class="logo-mark" style="justify-content:center;">
-                    <div class="logo-text" style="align-items:center;">
-                        <span class="name">ZUMA</span>
-                        <span class="sub">Lounge · Geilenkirchen</span>
-                    </div>
-                </a>
+            <div class="ft-logo">
+                <svg class="logo-svg" viewBox="0 0 260 55" xmlns="http://www.w3.org/2000/svg">
+                    <path class="l-white" d="M4 8 L30 8 L4 36 L30 36"/>
+                    <path class="l-gold" d="M46 16 L46 30 C46 36 52 40 58 40 C64 40 70 36 70 30 L70 16"/>
+                    <path class="l-white" d="M86 36 L86 8 L101 28 L116 8 L116 36"/>
+                    <path class="l-white" d="M132 36 L147 8 L162 36"/>
+                    <line class="l-dash" x1="52" y1="50" x2="68" y2="50"/>
+                    <text class="l-txt" x="113" y="52" text-anchor="middle" font-size="8.5">LOUNGE</text>
+                    <line class="l-dash" x1="148" y1="50" x2="164" y2="50"/>
+                </svg>
             </div>
-            <div class="footer-links">
+            <div class="ft-links">
                 <a href="/impressum.html">Impressum</a>
                 <a href="/datenschutz.html">Datenschutz</a>
                 <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://www.facebook.com/zumaloungee.gk/" target="_blank" rel="noopener">Facebook</a>
             </div>
-            <p class="footer-copy">&copy; 2026 ZUMA Lounge &middot; Made by <a href="https://elevo.solutions" target="_blank">ELEVO</a></p>
+            <p class="ft-copy">&copy; 2026 ZUMA Lounge &middot; Made by <a href="https://elevo.solutions" target="_blank">ELEVO</a></p>
         </div>
     </footer>
 
-    <!-- ═══ WHATSAPP FLOAT ═══ -->
-    <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="wa-float" aria-label="Über WhatsApp kontaktieren">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.357 0-4.544-.795-6.292-2.13l-.44-.348-3.17 1.063 1.063-3.17-.348-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    <!-- ═══ WHATSAPP ═══ -->
+    <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.357 0-4.544-.795-6.292-2.13l-.44-.348-3.17 1.063 1.063-3.17-.348-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
     </a>
 
-    <!-- ═══ JAVASCRIPT ═══ -->
+    <!-- ═══ JS ═══ -->
     <script>
-        // Init Lucide Icons
         lucide.createIcons();
 
-        // Header scroll
-        const hdr = document.getElementById('hdr');
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            hdr.classList.toggle('scrolled', window.scrollY > 80);
-        }, { passive: true });
+        // Header
+        addEventListener('scroll', () => document.getElementById('hdr').classList.toggle('scrolled', scrollY > 80), { passive: true });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
                 const t = document.querySelector(a.getAttribute('href'));
-                if (t) {
-                    const y = t.getBoundingClientRect().top + window.pageYOffset - 80;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
-                }
+                if (t) scrollTo({ top: t.getBoundingClientRect().top + pageYOffset - 80, behavior: 'smooth' });
             });
         });
 
-        // Scroll reveal with stagger
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('v');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        // Reveal
+        const io = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } });
+        }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.rv:not(.v)').forEach(el => io.observe(el));
 
-        document.querySelectorAll('.rv').forEach(el => {
-            // Don't re-observe hero elements (they start visible)
-            if (!el.closest('.hero')) {
-                obs.observe(el);
-            }
-        });
-
-        // Parallax-light on hero image (subtle)
-        const heroImg = document.querySelector('.hero-bg img');
-        if (heroImg && window.innerWidth > 768) {
-            window.addEventListener('scroll', () => {
-                const s = window.scrollY;
-                if (s < window.innerHeight) {
-                    heroImg.style.transform = `scale(${1.05 + s * 0.00015}) translateY(${s * 0.15}px)`;
-                }
+        // Hero parallax
+        const hi = document.querySelector('.hero-bg img');
+        if (hi && innerWidth > 768) {
+            addEventListener('scroll', () => {
+                if (scrollY < innerHeight) hi.style.transform = `scale(${1.06 + scrollY * .0001}) translateY(${scrollY * .1}px)`;
             }, { passive: true });
         }
 
-        // Hide scroll hint on scroll
-        const scrollHint = document.querySelector('.scroll-hint');
-        if (scrollHint) {
-            window.addEventListener('scroll', () => {
-                scrollHint.style.opacity = Math.max(0, 0.4 - window.scrollY * 0.004);
-            }, { passive: true });
-        }
+        // Fade scroll cue
+        const sc = document.querySelector('.scroll-cue');
+        if (sc) addEventListener('scroll', () => { sc.style.opacity = Math.max(0, .35 - scrollY * .003); }, { passive: true });
     </script>
 
 </body>
