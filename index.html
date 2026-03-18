@@ -150,7 +150,6 @@
         .logo-svg .l-gold  { fill: none; stroke: var(--gold); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
         .logo-svg .l-txt   { fill: var(--gold); font-family: var(--sans); font-weight: 400; letter-spacing: 5px; }
         .logo-svg .l-dash  { stroke: var(--gold); stroke-width: 1; opacity: .5; }
-        @media (max-width:500px) { .logo-svg { height: 30px; } }
 
         /* ═══ HERO ═══ */
         .hero {
@@ -365,8 +364,6 @@
             font-size: 13px; color: var(--white-4);
             line-height: 1.75; max-width: 210px; margin: 0 auto;
         }
-        @media (max-width:900px) { .erl-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width:500px) { .erl-grid { grid-template-columns: 1fr; } }
 
         /* ═══ GALLERY — MASONRY FEEL ═══ */
         .gallery-section { padding: 0; }
@@ -406,18 +403,6 @@
             font-family: var(--serif);
             font-size: 20px; font-weight: 400;
             font-style: italic; color: var(--white);
-        }
-        @media (max-width:768px) {
-            .gal-grid {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 240px 240px 240px;
-            }
-            .gal-grid .gi:first-child { grid-row: 1 / 2; }
-        }
-        @media (max-width:500px) {
-            .gal-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .gi { height: 260px; }
-            .gi-overlay { opacity: 1; }
         }
 
         /* ═══ STORY ═══ */
@@ -468,10 +453,6 @@
             font-weight: 300; margin-bottom: 16px;
         }
         .story-txt p:last-of-type { margin-bottom: 0; }
-        @media (max-width:900px) {
-            .story-grid { grid-template-columns: 1fr; gap: 48px; }
-            .story-vis { max-width: 420px; margin: 0 auto; }
-        }
 
         /* ═══ HIGHLIGHTS ═══ */
         .highlights {
@@ -499,7 +480,6 @@
             color: var(--white-3);
             letter-spacing: .06em;
         }
-        @media (max-width:600px) { .hl-grid { grid-template-columns: 1fr; gap: 32px; } }
 
         /* ═══ EVENTS ═══ */
         .events-grid {
@@ -566,10 +546,6 @@
             color: var(--white); margin-bottom: 8px;
         }
         .ec-desc { font-size: 13px; color: var(--white-3); }
-        @media (max-width:900px) {
-            .events-grid { grid-template-columns: 1fr; gap: 40px; }
-            .events-card { max-width: 400px; }
-        }
 
         /* ═══ HOURS + CONTACT ═══ */
         .hours { background: var(--surface); }
@@ -621,10 +597,6 @@
             text-decoration: none; transition: color .3s;
         }
         .fi-txt a:hover { color: var(--purple-soft); }
-        @media (max-width:768px) {
-            .hours-inner { grid-template-columns: 1fr; gap: 48px; }
-            .hours-sep { display: none; }
-        }
 
         /* ═══ SOCIAL ═══ */
         .social { padding: 90px 0; text-align: center; }
@@ -697,13 +669,244 @@
         .wa:hover { transform: scale(1.06); box-shadow: 0 6px 28px rgba(37,211,102,.3); }
         .wa svg { width: 24px; height: 24px; fill: #fff; }
 
-        /* ═══ RESPONSIVE ═══ */
-        @media (max-width:500px) {
-            .hero h1 { font-size: 36px; }
-            .sp { padding: 72px 0; }
-            .sp-lg { padding: 90px 0; }
-            .hero-pills { gap: 8px; }
-            .hero-pill { padding: 7px 14px; font-size: 11px; }
+        /* ═══ RESPONSIVE — TABLET (900px) ═══ */
+        @media (max-width:900px) {
+            .erl-grid { grid-template-columns: 1fr 1fr; }
+            .story-grid { grid-template-columns: 1fr; gap: 48px; }
+            .story-vis { max-width: 420px; margin: 0 auto; }
+            .events-grid { grid-template-columns: 1fr; gap: 40px; }
+            .events-card { max-width: 400px; }
+            .hours-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hours-sep { display: none; }
+            .gal-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 240px 240px 240px;
+            }
+            .gal-grid .gi:first-child { grid-row: 1 / 2; }
+        }
+
+        /* ═══ RESPONSIVE — MOBILE (540px) — UNIQUE UX ═══ */
+        @media (max-width:540px) {
+
+            /* ── Global mobile spacing ── */
+            .wrap, .wrap-narrow { padding: 0 20px; }
+            .sp { padding: 64px 0; }
+            .sp-lg { padding: 80px 0; }
+            body { font-size: 14px; }
+
+            /* ── Header: compact, logo centered feel ── */
+            header { padding: 16px 0; }
+            header.scrolled { padding: 10px 0; }
+            .logo-svg { height: 28px; }
+            nav { gap: 0; }
+            nav a { font-size: 9px; letter-spacing: .15em; }
+
+            /* ── Hero: immersive fullscreen mobile ── */
+            .hero { min-height: 100svh; align-items: flex-end; padding-bottom: 60px; }
+            .hero-inner { padding: 0 20px; }
+            .hero h1 {
+                font-size: 40px;
+                line-height: 1.04;
+                margin-bottom: 16px;
+            }
+            .hero-tag { margin-bottom: 24px; font-size: 8px; letter-spacing: .4em; }
+            .hero-sub {
+                font-size: 14px;
+                margin-bottom: 36px;
+                line-height: 1.7;
+            }
+            .hero-sub br { display: none; }
+
+            /* Hero pills → vertical stack on mobile */
+            .hero-pills {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .hero-pill {
+                justify-content: center;
+                padding: 10px 16px;
+                font-size: 12px;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                background: rgba(139,111,192,.06);
+            }
+
+            .scroll-cue { bottom: 20px; }
+            .scroll-cue span { font-size: 7px; }
+
+            /* ── Philosophy: bigger quote feel ── */
+            .phil-inner blockquote { font-size: 20px; line-height: 1.5; }
+            .phil-inner blockquote::before { font-size: 44px; top: -6px; left: -4px; }
+
+            /* ── Dividers: tighter ── */
+            .divider { padding: 32px 0; }
+            .smoke-div { padding: 32px 0; }
+            .dv-line { max-width: 100px; }
+
+            /* ── Section headers ── */
+            .sh { margin-bottom: 48px; }
+            .sh h2 { font-size: 30px; }
+            .sh-tag { font-size: 8.5px; }
+            .sh p { font-size: 14px; }
+
+            /* ── Erlebnis: horizontal scroll cards ── */
+            .erl-grid {
+                grid-template-columns: none;
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 12px;
+                padding-bottom: 8px;
+                margin: 0 -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .erl-grid::-webkit-scrollbar { display: none; }
+            .erl-card {
+                min-width: 260px;
+                max-width: 280px;
+                flex-shrink: 0;
+                scroll-snap-align: start;
+                padding: 36px 24px 32px;
+                border-radius: 16px;
+            }
+            .erl-card::before { display: none; }
+            .erl-ic { width: 48px; height: 48px; border-radius: 14px; margin-bottom: 18px; }
+            .erl-card h3 { font-size: 20px; }
+            .erl-card p { font-size: 12.5px; max-width: none; }
+
+            /* Scroll hint indicator */
+            .erl-grid::after {
+                content: '';
+                min-width: 4px;
+                flex-shrink: 0;
+            }
+
+            /* ── Gallery: horizontal scroll cinema ── */
+            .gal-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 3px;
+                grid-template-columns: none;
+                grid-template-rows: none;
+                height: auto;
+            }
+            .gal-grid::-webkit-scrollbar { display: none; }
+            .gi {
+                min-width: 85vw;
+                height: 380px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+            }
+            .gi-overlay { opacity: 1; }
+
+            /* ── Story: stacked, visual first ── */
+            .story-vis { max-width: none; }
+            .story-main { border-radius: 2px; }
+            .story-float {
+                width: 38%;
+                bottom: -16px; right: -10px;
+                border-width: 3px;
+            }
+            .story-corner { width: 40px; height: 40px; top: -10px; left: -10px; }
+            .story-txt h2 { font-size: 28px; }
+            .story-txt p { font-size: 14px; }
+
+            /* ── Highlights: horizontal row ── */
+            .hl-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .hl-num { font-size: 36px; }
+            .hl-label { font-size: 10px; }
+
+            /* ── Events: card stacked, full bleed image ── */
+            .events-card {
+                max-width: none;
+                border-radius: 16px;
+                aspect-ratio: 3/4;
+            }
+            .events-txt h2 { font-size: 26px; }
+            .events-txt p { font-size: 14px; }
+            .ev-feat span { font-size: 13px; }
+            .ev-ic { width: 38px; height: 38px; border-radius: 10px; }
+            .ev-ic i { width: 16px; height: 16px; }
+            .ec-title { font-size: 24px; }
+            .events-card-overlay { padding: 28px; }
+
+            /* ── Hours: clean stacked ── */
+            .h-col h3, .find-list h3 { font-size: 22px; }
+            .h-row .day, .h-row .time { font-size: 13px; }
+            .h-row { padding: 10px 0; }
+
+            .fi-ic { width: 36px; height: 36px; border-radius: 10px; }
+            .fi-ic i { width: 14px; height: 14px; }
+            .fi-txt span:last-child, .fi-txt a { font-size: 13px; }
+
+            /* ── Social: tighter ── */
+            .social h2 { font-size: 26px; margin-bottom: 28px; }
+            .soc-a { width: 50px; height: 50px; border-radius: 14px; }
+
+            /* ── Map: shorter on mobile ── */
+            .map { height: 280px; }
+
+            /* ── Footer: spacious ── */
+            .ft-links { gap: 18px; }
+            .ft-links a { font-size: 9.5px; }
+            .ft-logo .logo-svg { height: 22px; }
+
+            /* ── WhatsApp: move up for CTA bar ── */
+            .wa { bottom: 84px; right: 20px; width: 48px; height: 48px; border-radius: 14px; }
+            .wa svg { width: 22px; height: 22px; }
+
+            footer { padding-bottom: 80px; }
+        }
+
+        /* ═══ MOBILE CTA BAR ═══ */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 95;
+            padding: 10px 16px;
+            padding-bottom: calc(10px + env(safe-area-inset-bottom));
+            background: rgba(14,11,20,.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(139,111,192,.08);
+            gap: 10px;
+        }
+        @media (max-width:540px) {
+            .mobile-bar { display: flex; }
+        }
+        .mb-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: .03em;
+            text-decoration: none;
+            transition: transform .2s, opacity .2s;
+        }
+        .mb-btn:active { transform: scale(.97); opacity: .85; }
+        .mb-btn i { width: 16px; height: 16px; }
+        .mb-call {
+            background: var(--purple);
+            color: #fff;
+        }
+        .mb-wa {
+            background: #25D366;
+            color: #fff;
         }
     </style>
 </head>
@@ -1043,6 +1246,12 @@
             <p class="ft-copy">&copy; 2026 ZUMA Lounge &middot; Made by <a href="https://elevo.solutions" target="_blank">ELEVO</a></p>
         </div>
     </footer>
+
+    <!-- ═══ MOBILE CTA BAR ═══ -->
+    <div class="mobile-bar">
+        <a href="tel:+491712112348" class="mb-btn mb-call"><i data-lucide="phone"></i> Anrufen</a>
+        <a href="https://wa.me/491712112348" class="mb-btn mb-wa"><i data-lucide="message-circle"></i> WhatsApp</a>
+    </div>
 
     <!-- ═══ WHATSAPP ═══ -->
     <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="wa" aria-label="WhatsApp">
