@@ -864,6 +864,80 @@
         }
         .cookie-decline:hover { border-color: rgba(255,255,255,.15); color: var(--white); }
 
+        /* ═══ FILMSTRIP — AUTO-SCROLL SHOWCASE ═══ */
+        .filmstrip { 
+            padding: 80px 0; overflow: hidden; position: relative;
+            background: var(--bg-warm);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .filmstrip .sh { margin-bottom: 48px; }
+        .fs-track-wrap { position: relative; }
+        .fs-track-wrap::before, .fs-track-wrap::after {
+            content: ''; position: absolute; top: 0; bottom: 0;
+            width: 100px; z-index: 3; pointer-events: none;
+        }
+        .fs-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg-warm), transparent); }
+        .fs-track-wrap::after { right: 0; background: linear-gradient(270deg, var(--bg-warm), transparent); }
+
+        .fs-track {
+            display: flex; gap: 14px;
+            animation: marquee 40s linear infinite;
+            width: max-content;
+        }
+        .fs-track:hover { animation-play-state: paused; }
+        .fs-track.reverse { animation: marquee-rev 45s linear infinite; margin-top: 14px; }
+        .fs-track.reverse:hover { animation-play-state: paused; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-rev {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .fs-item {
+            position: relative; flex-shrink: 0;
+            width: 280px; height: 200px;
+            border-radius: 14px; overflow: hidden;
+            cursor: pointer;
+        }
+        .fs-item.tall { width: 180px; height: 200px; }
+        .fs-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(.6) saturate(.65);
+            transition: transform 1s var(--ease), filter .6s;
+        }
+        .fs-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(.8) saturate(.85);
+        }
+        .fs-label {
+            position: absolute; bottom: 12px; left: 12px;
+            padding: 4px 12px; border-radius: 100px;
+            background: rgba(10,7,16,.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(181,161,108,.12);
+            font-size: 9px; font-weight: 500;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: var(--gold); opacity: 0;
+            transition: opacity .4s;
+        }
+        .fs-item:hover .fs-label { opacity: 1; }
+
+        @media(max-width:540px){
+            .filmstrip { padding: 56px 0; }
+            .filmstrip .sh { margin-bottom: 32px; }
+            .fs-item { width: 220px; height: 160px; border-radius: 10px; }
+            .fs-item.tall { width: 140px; height: 160px; }
+            .fs-label { opacity: 1; font-size: 8px; bottom: 8px; left: 8px; padding: 3px 10px; }
+            .fs-track { gap: 10px; }
+            .fs-track.reverse { margin-top: 10px; }
+        }
+
         /* ═══ RESPONSIVE — TABLET ═══ */
         @media(max-width:900px){
             .erl-grid{grid-template-columns:1fr 1fr;}
@@ -1125,6 +1199,54 @@
         </div>
     </section>
 
+    <!-- ═══ GENUSS FILMSTRIP ═══ -->
+    <section class="filmstrip">
+        <div class="wrap">
+            <div class="sh rv">
+                <div class="sh-tag">Genuss in jedem Detail</div>
+                <h2>Cocktails. Shakes. <em>Sweets.</em></h2>
+            </div>
+        </div>
+        <div class="fs-track-wrap">
+            <div class="fs-track">
+                <div class="fs-item"><img src="Zuma-12.jpg" alt="Espresso Martini" loading="lazy"><span class="fs-label">Espresso Martini</span></div>
+                <div class="fs-item tall"><img src="Zuma-085.jpg" alt="Mango Sorbet Cocktail" loading="lazy"><span class="fs-label">Mango Sorbet</span></div>
+                <div class="fs-item"><img src="Zuma-33.jpg" alt="Cocktails & Snacks von oben" loading="lazy"><span class="fs-label">Date Night</span></div>
+                <div class="fs-item tall"><img src="Zuma-050.jpg" alt="Loaded Milkshakes" loading="lazy"><span class="fs-label">Milkshakes</span></div>
+                <div class="fs-item"><img src="Zuma-37.jpg" alt="Nachos Platter & Cocktails" loading="lazy"><span class="fs-label">Snack Platter</span></div>
+                <div class="fs-item tall"><img src="Zuma-080.jpg" alt="Kokosnuss Cocktail" loading="lazy"><span class="fs-label">Coconut Fresh</span></div>
+                <div class="fs-item"><img src="Zuma-15.jpg" alt="Kaffee, Kuchen & Rauch" loading="lazy"><span class="fs-label">Kaffee & Kuchen</span></div>
+                <div class="fs-item"><img src="Zuma-30.jpg" alt="Hookah & Cocktails am Tisch" loading="lazy"><span class="fs-label">Hookah Setup</span></div>
+                <div class="fs-item"><img src="Zuma-12.jpg" alt="Espresso Martini" loading="lazy"><span class="fs-label">Espresso Martini</span></div>
+                <div class="fs-item tall"><img src="Zuma-085.jpg" alt="Mango Sorbet Cocktail" loading="lazy"><span class="fs-label">Mango Sorbet</span></div>
+                <div class="fs-item"><img src="Zuma-33.jpg" alt="Cocktails & Snacks von oben" loading="lazy"><span class="fs-label">Date Night</span></div>
+                <div class="fs-item tall"><img src="Zuma-050.jpg" alt="Loaded Milkshakes" loading="lazy"><span class="fs-label">Milkshakes</span></div>
+                <div class="fs-item"><img src="Zuma-37.jpg" alt="Nachos Platter & Cocktails" loading="lazy"><span class="fs-label">Snack Platter</span></div>
+                <div class="fs-item tall"><img src="Zuma-080.jpg" alt="Kokosnuss Cocktail" loading="lazy"><span class="fs-label">Coconut Fresh</span></div>
+                <div class="fs-item"><img src="Zuma-15.jpg" alt="Kaffee, Kuchen & Rauch" loading="lazy"><span class="fs-label">Kaffee & Kuchen</span></div>
+                <div class="fs-item"><img src="Zuma-30.jpg" alt="Hookah & Cocktails am Tisch" loading="lazy"><span class="fs-label">Hookah Setup</span></div>
+            </div>
+            <div class="fs-track reverse">
+                <div class="fs-item"><img src="Zuma-37.jpg" alt="Nachos & Dips" loading="lazy"><span class="fs-label">Nachos & Dips</span></div>
+                <div class="fs-item tall"><img src="Zuma-080.jpg" alt="Tropical Coconut" loading="lazy"><span class="fs-label">Tropical</span></div>
+                <div class="fs-item"><img src="Zuma-63.jpg" alt="Gold Hookah Collection" loading="lazy"><span class="fs-label">Gold Hookahs</span></div>
+                <div class="fs-item"><img src="Zuma-15.jpg" alt="Kaffee im Rauch" loading="lazy"><span class="fs-label">Smoky Vibes</span></div>
+                <div class="fs-item tall"><img src="Zuma-085.jpg" alt="Mango Cocktail Detail" loading="lazy"><span class="fs-label">Mango Ice</span></div>
+                <div class="fs-item"><img src="Zuma-55.jpg" alt="Getränkeauswahl" loading="lazy"><span class="fs-label">Die Bar</span></div>
+                <div class="fs-item tall"><img src="Zuma-050.jpg" alt="Shake Lineup" loading="lazy"><span class="fs-label">Shake it</span></div>
+                <div class="fs-item"><img src="Zuma-33.jpg" alt="Table Setup von oben" loading="lazy"><span class="fs-label">Tisch für 3</span></div>
+                <div class="fs-item"><img src="Zuma-37.jpg" alt="Nachos & Dips" loading="lazy"><span class="fs-label">Nachos & Dips</span></div>
+                <div class="fs-item tall"><img src="Zuma-080.jpg" alt="Tropical Coconut" loading="lazy"><span class="fs-label">Tropical</span></div>
+                <div class="fs-item"><img src="Zuma-63.jpg" alt="Gold Hookah Collection" loading="lazy"><span class="fs-label">Gold Hookahs</span></div>
+                <div class="fs-item"><img src="Zuma-15.jpg" alt="Kaffee im Rauch" loading="lazy"><span class="fs-label">Smoky Vibes</span></div>
+                <div class="fs-item tall"><img src="Zuma-085.jpg" alt="Mango Cocktail Detail" loading="lazy"><span class="fs-label">Mango Ice</span></div>
+                <div class="fs-item"><img src="Zuma-55.jpg" alt="Getränkeauswahl" loading="lazy"><span class="fs-label">Die Bar</span></div>
+                <div class="fs-item tall"><img src="Zuma-050.jpg" alt="Shake Lineup" loading="lazy"><span class="fs-label">Shake it</span></div>
+                <div class="fs-item"><img src="Zuma-33.jpg" alt="Table Setup von oben" loading="lazy"><span class="fs-label">Tisch für 3</span></div>
+            </div>
+        </div>
+    </section>
+
     <div class="smoke-div">
         <svg width="240" height="30" viewBox="0 0 240 30" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 15 C20 15,30 5,50 10 C70 15,62 25,88 17 C114 9,108 24,135 15 C152 9,162 22,185 15 C200 10,220 15,240 15" fill="none" stroke="rgba(181,161,108,.35)" stroke-width=".6" stroke-linecap="round"/>
@@ -1237,7 +1359,7 @@
                     </div>
                 </div>
                 <div class="events-card rv d3">
-                    <img src="Zuma-30.jpg" alt="ZUMA Lounge — Hookah & Cocktails" loading="lazy">
+                    <img src="Zuma-33.jpg" alt="ZUMA Lounge — Cocktails & Snacks am Tisch" loading="lazy">
                     <div class="events-card-overlay">
                         <span class="ec-badge">Jeden Abend</span>
                         <div class="ec-title">Sound & Vibes</div>
@@ -1377,7 +1499,7 @@
             <h3>Angaben gemäß § 5 TMG</h3>
             <p>ZUMA Lounge<br>Heinsberger Str. 77<br>52511 Geilenkirchen</p>
             <h3>Kontakt</h3>
-            <p>Telefon: 0171 211 23 48<br>E-Mail: info@zuma-lounge.de</p>
+            <p>Telefon: 0171 211 23 48<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="deb7b0b8b19ea4abb3bff3b2b1abb0b9bbf0babb">[email&#160;protected]</a></p>
             <h3>Streitschlichtung</h3>
             <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
             <h3>Haftung für Inhalte</h3>
@@ -1417,7 +1539,7 @@
     </div>
 
     <!-- ═══ JS ═══ -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         lucide.createIcons();
 
         /* Scroll restoration */
@@ -1555,12 +1677,4 @@
         }
         function acceptCookies() {
             localStorage.setItem('zuma_cookies', 'accepted');
-            document.getElementById('cookieBanner').classList.remove('show');
-        }
-        function declineCookies() {
-            localStorage.setItem('zuma_cookies', 'declined');
-            document.getElementById('cookieBanner').classList.remove('show');
-        }
-    </script>
-</body>
-</html>
+            document.getElementById('cookieBanner').classList.remove('show
