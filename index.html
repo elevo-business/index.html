@@ -135,9 +135,13 @@
         /* ═══ REVEAL ═══ */
         .rv {
             opacity: 0; transform: translateY(30px);
-            transition: opacity 1.1s var(--ease), transform 1.1s var(--ease);
+            transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .rv.v { opacity: 1; transform: translateY(0); }
+        /* CSS-only fallback: if JS fails, reveal everything after 1.5s */
+        @keyframes revealFallback { to { opacity: 1; transform: translateY(0); } }
+        .rv { animation: revealFallback 0s 1.5s forwards; }
+        .rv.v { animation: none; }
         .d1{transition-delay:.12s}.d2{transition-delay:.24s}
         .d3{transition-delay:.36s}.d4{transition-delay:.48s}
         .d5{transition-delay:.6s}.d6{transition-delay:.72s}
@@ -234,7 +238,6 @@
             font-size: 8.5px; font-weight: 400;
             letter-spacing: .5em; text-transform: uppercase;
             color: var(--gold); margin-bottom: 28px;
-            opacity: 0; animation: fadeUp .9s var(--ease) .3s forwards;
         }
         .ht-line { width: 32px; height: 1px; background: var(--gold); opacity: .3; }
 
@@ -244,7 +247,6 @@
             font-weight: 300; line-height: 1.02;
             color: var(--white); margin-bottom: 18px;
             letter-spacing: -.015em;
-            opacity: 0; animation: fadeUp 1s var(--ease) .5s forwards;
         }
         .hero h1 em { font-style: italic; color: var(--purple-soft); font-weight: 400; }
 
@@ -252,12 +254,10 @@
             font-size: 16px; font-weight: 300;
             color: var(--white-3); margin-bottom: 40px;
             max-width: 480px; line-height: 1.75;
-            opacity: 0; animation: fadeUp 1s var(--ease) .7s forwards;
         }
 
         .hero-pills {
             display: flex; gap: 10px; flex-wrap: wrap;
-            opacity: 0; animation: fadeUp 1s var(--ease) .9s forwards;
         }
         .hero-pill {
             display: inline-flex; align-items: center; gap: 7px;
@@ -1539,8 +1539,8 @@
     </div>
 
     <!-- ═══ JS ═══ -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        lucide.createIcons();
+    <script>
+        try { lucide.createIcons(); } catch(e) { console.warn('Lucide icons not loaded'); }
 
         /* Scroll restoration */
         if('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -1656,7 +1656,7 @@
         function openModal(id) {
             document.getElementById(id).classList.add('show');
             document.body.style.overflow = 'hidden';
-            lucide.createIcons();
+            try { lucide.createIcons(); } catch(e) {}
         }
         function closeModal(id) {
             document.getElementById(id).classList.remove('show');
