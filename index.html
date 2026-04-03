@@ -459,74 +459,56 @@
             line-height: 1.7; max-width: 200px; margin: 0 auto;
         }
 
-        /* ═══ GALLERY — MOBILE-FIRST: Cards default, Grid on desktop ═══ */
-        .gallery-section { padding: 24px 0; }
+        /* ═══ GALLERY ═══ */
+        .gallery-section { padding: 16px 0; }
         .gal-grid {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
             padding: 0 20px;
         }
-        .gal-grid::-webkit-scrollbar { display: none; }
         .gi {
-            position: relative; cursor: pointer;
-            min-width: 72vw; height: 420px;
-            flex-shrink: 0; overflow: hidden;
-            scroll-snap-align: center;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,.3);
+            position: relative; overflow: hidden; cursor: pointer;
+            border-radius: 12px; height: 180px;
         }
+        .gi:first-child { grid-column: 1 / -1; height: 220px; }
         .gi img {
             width: 100%; height: 100%; object-fit: cover;
-            border-radius: 20px;
+            border-radius: 12px;
             filter: brightness(.65) saturate(.7);
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter .6s;
-        }
-        .gi:hover img {
-            transform: scale(1.05);
-            filter: brightness(.75) saturate(.8);
+            transition: transform .6s cubic-bezier(0.16,1,0.3,1), filter .4s;
         }
         .gi:active img { transform: scale(1.03); }
         .gi-overlay {
             position: absolute; inset: 0;
-            background: linear-gradient(0deg, rgba(10,7,16,.85) 0%, transparent 40%);
+            background: linear-gradient(0deg, rgba(10,7,16,.8) 0%, transparent 50%);
             display: flex; flex-direction: column;
-            justify-content: flex-end; padding: 20px;
-            opacity: 1; border-radius: 20px;
-            transition: opacity .5s;
+            justify-content: flex-end; padding: 14px;
+            opacity: 1; border-radius: 12px;
         }
         .gi-tag {
-            font-size: 8px; letter-spacing: .35em;
+            font-size: 7px; letter-spacing: .3em;
             text-transform: uppercase; color: var(--gold);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
         .gi-title {
             font-family: var(--serif);
-            font-size: 17px; font-weight: 400;
+            font-size: 15px; font-weight: 400;
             font-style: italic; color: var(--white);
         }
-        .gal-grid::after { content: ''; min-width: 8px; flex-shrink: 0; }
 
-        /* Desktop: masonry grid instead of cards */
+        /* Desktop: larger masonry grid */
         @media(min-width:901px) {
             .gallery-section { padding: 0; overflow: hidden; }
             .gal-grid {
-                display: grid;
                 grid-template-columns: 1.2fr 1fr 1fr;
                 grid-template-rows: 300px 300px;
                 gap: 3px; padding: 0;
-                overflow: visible;
             }
-            .gal-grid::after { display: none; }
-            .gal-grid .gi:first-child { grid-row: 1 / 3; }
-            .gi {
-                min-width: unset; height: auto;
-                border-radius: 0; box-shadow: none;
-                scroll-snap-align: unset;
-            }
+            .gi { border-radius: 0; height: auto; }
+            .gi:first-child { grid-column: auto; grid-row: 1 / 3; height: auto; }
             .gi img { border-radius: 0; filter: brightness(.55) saturate(.6); }
+            .gi:hover img { transform: scale(1.05); filter: brightness(.7) saturate(.75); }
             .gi-overlay {
                 opacity: 0; border-radius: 0; padding: 24px;
                 background: linear-gradient(0deg, rgba(10,7,16,.85) 0%, transparent 45%);
