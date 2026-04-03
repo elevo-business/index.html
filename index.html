@@ -1044,17 +1044,14 @@
             .sh h2{font-size:28px;} .sh-tag{font-size:8px;} .sh p{font-size:13.5px;}
 
             .erl-grid{
-                grid-template-columns:none;display:flex;
-                overflow-x:auto;scroll-snap-type:x mandatory;
-                -webkit-overflow-scrolling:touch;gap:10px;
-                padding-bottom:8px;margin:0 -20px;padding-left:20px;padding-right:20px;
+                grid-template-columns:1fr 1fr;
+                gap:10px;
             }
-            .erl-grid::-webkit-scrollbar{display:none;}
-            .erl-card{min-width:250px;max-width:270px;flex-shrink:0;scroll-snap-align:start;padding:32px 20px 28px;border-radius:16px;}
+            .erl-card{padding:24px 16px 20px;border-radius:14px;}
             .erl-card::before{display:none;}
-            .erl-ic{width:46px;height:46px;border-radius:12px;margin-bottom:16px;}
-            .erl-card h3{font-size:19px;} .erl-card p{font-size:12px;max-width:none;}
-            .erl-grid::after{content:'';min-width:4px;flex-shrink:0;}
+            .erl-ic{width:40px;height:40px;border-radius:10px;margin-bottom:12px;}
+            .erl-card h3{font-size:16px;margin-bottom:4px;} 
+            .erl-card p{font-size:11px;max-width:none;line-height:1.55;}
 
             .story-vis{max-width:none;}
             .story-main{border-radius:2px;}
