@@ -273,12 +273,12 @@
             border-color: rgba(181,161,108,.25);
             background: rgba(181,161,108,.08);
         }
-        .hero-pill i { width: 13px; height: 13px; color: var(--gold); }
+        .hero-pill svg { width: 13px; height: 13px; color: var(--gold); }
         .hero-pill.open-now {
             border-color: rgba(74,222,128,.2);
             background: rgba(74,222,128,.06);
         }
-        .hero-pill.open-now i { color: #4ade80; }
+        .hero-pill.open-now svg { color: #4ade80; }
         .open-dot {
             width: 6px; height: 6px; border-radius: 50%;
             background: #4ade80; animation: blink 2s ease-in-out infinite;
@@ -288,7 +288,7 @@
             background: rgba(239,68,68,.04);
         }
         .hero-pill.closed-now .open-dot { background: #ef4444; animation: none; }
-        .hero-pill.closed-now i { color: #ef4444; }
+        .hero-pill.closed-now svg { color: #ef4444; }
         @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
 
         @keyframes fadeUp {
@@ -406,7 +406,7 @@
             border: 1px solid rgba(181,161,108,.08);
             display: flex; align-items: center; justify-content: center;
         }
-        .erl-ic i { color: var(--gold); width: 21px; height: 21px; }
+        .erl-ic svg { color: var(--gold); width: 21px; height: 21px; }
         .erl-card h3 {
             font-family: var(--serif);
             font-size: 21px; font-weight: 400;
@@ -573,7 +573,7 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(37,211,102,.3);
         }
-        .sig-cta i { width: 18px; height: 18px; }
+        .sig-cta svg { width: 18px; height: 18px; }
         .sig-note {
             margin-top: 16px; font-size: 11px;
             color: var(--white-4); letter-spacing: .02em;
@@ -605,7 +605,7 @@
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-        .ev-ic i { color: var(--gold); width: 17px; height: 17px; }
+        .ev-ic svg { color: var(--gold); width: 17px; height: 17px; }
         .ev-feat span { font-size: 13.5px; color: var(--white-2); }
 
         .events-card {
@@ -673,7 +673,7 @@
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-        .fi-ic i { color: var(--gold); width: 15px; height: 15px; }
+        .fi-ic svg { color: var(--gold); width: 15px; height: 15px; }
         .fi-txt { display: flex; flex-direction: column; }
         .fi-lbl {
             font-size: 7.5px; letter-spacing: .3em;
@@ -701,14 +701,14 @@
             text-decoration: none;
             transition: all .4s var(--ease);
         }
-        .soc-a i { color: var(--white-3); width: 19px; height: 19px; transition: color .4s; }
+        .soc-a svg { color: var(--white-3); width: 19px; height: 19px; transition: color .4s; }
         .soc-a:hover {
             border-color: var(--gold);
             background: var(--gold-sub);
             transform: translateY(-3px);
             box-shadow: 0 8px 24px rgba(181,161,108,.1);
         }
-        .soc-a:hover i { color: var(--gold); }
+        .soc-a:hover svg { color: var(--gold); }
 
         /* ═══ MAP ═══ */
         .map { position: relative; height: 360px; overflow: hidden; }
@@ -786,7 +786,7 @@
             transition: transform .2s, opacity .2s;
         }
         .mb-btn:active { transform: scale(.97); opacity: .85; }
-        .mb-btn i { width: 15px; height: 15px; }
+        .mb-btn svg { width: 15px; height: 15px; }
         .mb-call { background: var(--purple); color: #fff; }
         .mb-wa { background: #25D366; color: #fff; }
 
@@ -1022,12 +1022,12 @@
             .events-card{max-width:none;border-radius:16px;aspect-ratio:3/4;}
             .events-txt h2{font-size:24px;} .events-txt p{font-size:13.5px;}
             .ev-feat span{font-size:12.5px;}
-            .ev-ic{width:36px;height:36px;border-radius:10px;} .ev-ic i{width:15px;height:15px;}
+            .ev-ic{width:36px;height:36px;border-radius:10px;} .ev-ic svg{width:15px;height:15px;}
             .ec-title{font-size:22px;} .events-card-overlay{padding:24px;}
 
             .h-col h3,.find-list h3{font-size:21px;}
             .h-row .day,.h-row .time{font-size:12.5px;} .h-row{padding:9px 0;}
-            .fi-ic{width:34px;height:34px;border-radius:10px;} .fi-ic i{width:13px;height:13px;}
+            .fi-ic{width:34px;height:34px;border-radius:10px;} .fi-ic svg{width:13px;height:13px;}
             .fi-txt span:last-child,.fi-txt a{font-size:12.5px;}
 
             .social h2{font-size:24px;margin-bottom:24px;}
@@ -1100,9 +1100,9 @@
                 <h1>Dein Abend<br>beginnt <em>hier.</em></h1>
                 <p class="hero-sub">Premium Hookah, handgemachte Cocktails und ein Ambiente, das du so schnell nicht vergisst. Mitten in Geilenkirchen.</p>
                 <div class="hero-pills">
-                    <span class="hero-pill" id="openPill"><div class="open-dot"></div> <span id="openText">Prüfe...</span></span>
-                    <span class="hero-pill"><i data-lucide="clock"></i> Täglich ab 18 Uhr</span>
-                    <span class="hero-pill"><i data-lucide="calendar"></i> Fr & Sa bis 2 Uhr</span>
+                    <span class="hero-pill" id="openPill"><span class="open-dot" style="display:none"></span> <span id="openText">Täglich ab 18 Uhr</span></span>
+                    <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Täglich ab 18 Uhr</span>
+                    <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Fr & Sa bis 2 Uhr</span>
                 </div>
             </div>
         </div>
@@ -1135,22 +1135,22 @@
             </div>
             <div class="erl-grid">
                 <div class="erl-card rv d1">
-                    <div class="erl-ic"><i data-lucide="wind"></i></div>
+                    <div class="erl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7A2.5 2.5 0 0 1 17.5 13H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg></div>
                     <h3>Premium Hookah</h3>
                     <p>Erlesene Tabaksorten — sorgfältig zubereitet, perfekt im Zug. Mit goldenen Pfeifen die du nirgends sonst findest.</p>
                 </div>
                 <div class="erl-card rv d2">
-                    <div class="erl-ic"><i data-lucide="wine"></i></div>
+                    <div class="erl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/></svg></div>
                     <h3>Cocktails</h3>
                     <p>Von klassisch bis kreativ — frisch gemixt mit Liebe zum Detail und erstklassigen Zutaten.</p>
                 </div>
                 <div class="erl-card rv d3">
-                    <div class="erl-ic"><i data-lucide="candy"></i></div>
+                    <div class="erl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 7.5-2 2a4.95 4.95 0 1 0 7 7l2-2a4.95 4.95 0 1 0-7-7Z"/><path d="M14 6.5v10"/><path d="M10 7.5v10"/></svg></div>
                     <h3>Candy Bar</h3>
                     <p>Milchshakes, Waffeln, handverlesene Sweets und süße Versuchungen für besondere Momente.</p>
                 </div>
                 <div class="erl-card rv d4">
-                    <div class="erl-ic"><i data-lucide="music"></i></div>
+                    <div class="erl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                     <h3>Sound</h3>
                     <p>R&B, Hip Hop, Afrobeats & orientalische Klänge — der Soundtrack für deinen Abend.</p>
                 </div>
@@ -1323,7 +1323,7 @@
                 </div>
 
                 <a href="#" class="sig-cta" id="sigCta" target="_blank" rel="noopener">
-                    <i data-lucide="message-circle"></i>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                     Tisch anfragen via WhatsApp
                 </a>
                 <div class="sig-note">Antwort meistens innerhalb von Minuten</div>
@@ -1341,19 +1341,19 @@
                     <p>Ob entspannter Dienstagabend oder ausgelassene Freitagnacht — bei ZUMA hat jeder Abend seinen eigenen Charakter.</p>
                     <div class="ev-features">
                         <div class="ev-feat">
-                            <div class="ev-ic"><i data-lucide="music"></i></div>
+                            <div class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                             <span>R&B · Hip Hop · Afrobeats · Oriental</span>
                         </div>
                         <div class="ev-feat">
-                            <div class="ev-ic"><i data-lucide="users"></i></div>
+                            <div class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                             <span>Private Feiern & Gruppenreservierungen</span>
                         </div>
                         <div class="ev-feat">
-                            <div class="ev-ic"><i data-lucide="sparkles"></i></div>
+                            <div class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></div>
                             <span>Themenabende & Special Events</span>
                         </div>
                         <div class="ev-feat">
-                            <div class="ev-ic"><i data-lucide="instagram"></i></div>
+                            <div class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
                             <span>Folge @zuma.lounge für alle Updates</span>
                         </div>
                     </div>
@@ -1401,28 +1401,28 @@
                     <h3>Find uns</h3>
                     <div class="find-list">
                         <div class="fi">
-                            <div class="fi-ic"><i data-lucide="map-pin"></i></div>
+                            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
                             <div class="fi-txt">
                                 <span class="fi-lbl">Adresse</span>
                                 <span>Heinsberger Str. 77, 52511 Geilenkirchen</span>
                             </div>
                         </div>
                         <div class="fi">
-                            <div class="fi-ic"><i data-lucide="phone"></i></div>
+                            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                             <div class="fi-txt">
                                 <span class="fi-lbl">Telefon</span>
                                 <a href="tel:+491712112348">0171 211 23 48</a>
                             </div>
                         </div>
                         <div class="fi">
-                            <div class="fi-ic"><i data-lucide="message-circle"></i></div>
+                            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
                             <div class="fi-txt">
                                 <span class="fi-lbl">WhatsApp</span>
                                 <a href="https://wa.me/491712112348">Schreib uns direkt</a>
                             </div>
                         </div>
                         <div class="fi">
-                            <div class="fi-ic"><i data-lucide="instagram"></i></div>
+                            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
                             <div class="fi-txt">
                                 <span class="fi-lbl">Instagram</span>
                                 <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener">@zuma.lounge</a>
@@ -1440,10 +1440,10 @@
             <div class="sh-tag rv">Folge uns</div>
             <h2 class="rv d1">Bleib in der Loop.</h2>
             <div class="soc-row rv d2">
-                <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener" class="soc-a" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                <a href="https://www.facebook.com/zumaloungee.gk/" target="_blank" rel="noopener" class="soc-a" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-                <a href="https://www.tiktok.com/@zuma.lounge" target="_blank" rel="noopener" class="soc-a" aria-label="TikTok"><i data-lucide="music-2"></i></a>
-                <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="soc-a" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+                <a href="https://www.instagram.com/zuma.lounge/" target="_blank" rel="noopener" class="soc-a" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                <a href="https://www.facebook.com/zumaloungee.gk/" target="_blank" rel="noopener" class="soc-a" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="https://www.tiktok.com/@zuma.lounge" target="_blank" rel="noopener" class="soc-a" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg></a>
+                <a href="https://wa.me/491712112348" target="_blank" rel="noopener" class="soc-a" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
             </div>
         </div>
     </section>
@@ -1482,8 +1482,8 @@
 
     <!-- ═══ MOBILE CTA BAR ═══ -->
     <div class="mobile-bar">
-        <a href="tel:+491712112348" class="mb-btn mb-call"><i data-lucide="phone"></i> Anrufen</a>
-        <a href="https://wa.me/491712112348" class="mb-btn mb-wa"><i data-lucide="message-circle"></i> WhatsApp</a>
+        <a href="tel:+491712112348" class="mb-btn mb-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Anrufen</a>
+        <a href="https://wa.me/491712112348" class="mb-btn mb-wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp</a>
     </div>
 
     <!-- ═══ WHATSAPP FLOAT ═══ -->
@@ -1567,83 +1567,7 @@
 
     <!-- ═══ JS ═══ -->
     <script>
-        /* === ICON SYSTEM — zero CDN === */
-        (function(){
-            var paths = {
-                'wind':'M17.7 7.7A2.5 2.5 0 0 1 17.5 13H2|M9.6 4.6A2 2 0 1 1 11 8H2|M12.6 19.4A2 2 0 1 0 14 16H2',
-                'wine':'M8 22h8|M7 10h10|M12 15v7|M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z',
-                'candy':'m9.5 7.5-2 2a4.95 4.95 0 1 0 7 7l2-2a4.95 4.95 0 1 0-7-7Z|M14 6.5v10|M10 7.5v10',
-                'music':'M9 18V5l12-2v13',
-                'music-2':'M12 18V2l7 4',
-                'clock':'M12 6v6l4 2',
-                'calendar':'M16 2v4|M8 2v4|M3 10h18',
-                'map-pin':'M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z',
-                'phone':'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z',
-                'message-circle':'M7.9 20A9 9 0 1 0 4 16.1L2 22Z',
-                'users':'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2|M22 21v-2a4 4 0 0 0-3-3.87|M16 3.13a4 4 0 0 1 0 7.75',
-                'sparkles':'m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z|M5 3v4|M19 17v4|M3 5h4|M17 19h4',
-                'instagram':'M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z',
-                'facebook':'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
-                'x':'M18 6 6 18|m6 6 12 12'
-            };
-            var circles = {
-                'music': [[6,18,3],[18,16,3]],
-                'music-2': [[8,18,4]],
-                'clock': [[12,12,10]],
-                'map-pin': [[12,10,3]],
-                'users': [[9,7,4]]
-            };
-            var rects = {
-                'calendar': [[3,4,18,18,2]],
-                'instagram': [[2,2,20,20,5]]
-            };
-            var lines = {
-                'instagram': [[17.5,6.5,17.51,6.5]]
-            };
-            document.querySelectorAll('[data-lucide]').forEach(function(el){
-                var n = el.getAttribute('data-lucide');
-                var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-                svg.setAttribute('viewBox','0 0 24 24');
-                svg.setAttribute('fill','none');
-                svg.setAttribute('stroke','currentColor');
-                svg.setAttribute('stroke-width','2');
-                svg.setAttribute('stroke-linecap','round');
-                svg.setAttribute('stroke-linejoin','round');
-                svg.style.width = '100%';
-                svg.style.height = '100%';
-                /* paths */
-                if(paths[n]) paths[n].split('|').forEach(function(d){
-                    var p = document.createElementNS('http://www.w3.org/2000/svg','path');
-                    p.setAttribute('d',d); svg.appendChild(p);
-                });
-                /* circles */
-                if(circles[n]) circles[n].forEach(function(c){
-                    var ci = document.createElementNS('http://www.w3.org/2000/svg','circle');
-                    ci.setAttribute('cx',c[0]); ci.setAttribute('cy',c[1]); ci.setAttribute('r',c[2]);
-                    svg.appendChild(ci);
-                });
-                /* rects */
-                if(rects[n]) rects[n].forEach(function(r){
-                    var re = document.createElementNS('http://www.w3.org/2000/svg','rect');
-                    re.setAttribute('x',r[0]); re.setAttribute('y',r[1]);
-                    re.setAttribute('width',r[2]); re.setAttribute('height',r[3]);
-                    re.setAttribute('rx',r[4]);
-                    svg.appendChild(re);
-                });
-                /* lines */
-                if(lines[n]) lines[n].forEach(function(l){
-                    var li = document.createElementNS('http://www.w3.org/2000/svg','line');
-                    li.setAttribute('x1',l[0]); li.setAttribute('y1',l[1]);
-                    li.setAttribute('x2',l[2]); li.setAttribute('y2',l[3]);
-                    svg.appendChild(li);
-                });
-                el.style.display = 'inline-flex';
-                el.style.alignItems = 'center';
-                el.style.justifyContent = 'center';
-                while(el.firstChild) el.removeChild(el.firstChild);
-                el.appendChild(svg);
-            });
-        })();
+        /* Icons are inline SVG — no JS needed */
 
         /* Scroll restoration */
         if('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -1695,8 +1619,18 @@
                 }
                 requestAnimationFrame(update);
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
         document.querySelectorAll('.hl-num[data-count]').forEach(el => counterObs.observe(el));
+        /* Fallback: if counters haven't animated after 4s, force final values */
+        setTimeout(function(){
+            document.querySelectorAll('.hl-num[data-count]').forEach(function(el){
+                if(el.textContent === '0') {
+                    var t = parseInt(el.dataset.count);
+                    var s = el.dataset.suffix || '';
+                    if(t) el.textContent = t.toLocaleString('de-DE') + s;
+                }
+            });
+        }, 4000);
 
         /* Hero parallax */
         const hi = document.querySelector('.hero-bg img');
@@ -1712,27 +1646,21 @@
 
         /* Live open indicator */
         function checkOpen() {
-            const now = new Date();
-            const day = now.getDay();
-            const h = now.getHours();
-            const pill = document.getElementById('openPill');
-            const text = document.getElementById('openText');
-
-            let isOpen = false;
-            // Mo-Do, So: 18-00 | Fr,Sa: 18-02
-            if (day === 5 || day === 6) {
-                isOpen = h >= 18 || h < 2;
-            } else {
-                isOpen = h >= 18;
-            }
-
-            if (isOpen) {
-                pill.className = 'hero-pill open-now';
-                text.textContent = 'Jetzt geöffnet';
-            } else {
-                pill.className = 'hero-pill closed-now';
-                text.textContent = 'Öffnet um 18 Uhr';
-            }
+            try {
+                var now = new Date();
+                var day = now.getDay();
+                var h = now.getHours();
+                var pill = document.getElementById('openPill');
+                var text = document.getElementById('openText');
+                if(!pill || !text) return;
+                var isOpen = false;
+                if (day === 5 || day === 6) { isOpen = h >= 18 || h < 2; }
+                else { isOpen = h >= 18; }
+                pill.className = isOpen ? 'hero-pill open-now' : 'hero-pill closed-now';
+                text.textContent = isOpen ? 'Jetzt geöffnet' : 'Öffnet um 18 Uhr';
+                var dot = pill.querySelector('.open-dot');
+                if(dot) dot.style.display = '';
+            } catch(e) {}
         }
         checkOpen();
         setInterval(checkOpen, 60000);
