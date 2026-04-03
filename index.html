@@ -84,7 +84,7 @@
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--purple-deep) var(--bg); }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--purple-deep) var(--bg); overflow-x: hidden; }
 
         body {
             font-family: var(--sans);
@@ -413,7 +413,7 @@
         }
 
         /* ═══ ERLEBNIS ═══ */
-        .erlebnis { background: var(--surface); }
+        .erlebnis { background: var(--surface); overflow: hidden; }
         .erl-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -460,7 +460,7 @@
         }
 
         /* ═══ GALLERY — FULL REAL PHOTOS ═══ */
-        .gallery-section { padding: 0; }
+        .gallery-section { padding: 0; overflow: hidden; }
         .gal-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr 1fr;
@@ -914,7 +914,7 @@
             border-bottom: 1px solid var(--border);
         }
         .filmstrip .sh { margin-bottom: 48px; }
-        .fs-track-wrap { position: relative; }
+        .fs-track-wrap { position: relative; overflow: hidden; }
         .fs-track-wrap::before, .fs-track-wrap::after {
             content: ''; position: absolute; top: 0; bottom: 0;
             width: 100px; z-index: 3; pointer-events: none;
