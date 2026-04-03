@@ -1100,7 +1100,7 @@
                 <h1>Dein Abend<br>beginnt <em>hier.</em></h1>
                 <p class="hero-sub">Premium Hookah, handgemachte Cocktails und ein Ambiente, das du so schnell nicht vergisst. Mitten in Geilenkirchen.</p>
                 <div class="hero-pills">
-                    <span class="hero-pill" id="openPill"><span class="open-dot" style="display:none"></span> <span id="openText">Premium Hookah</span></span>
+                    <span class="hero-pill" id="openPill"><span class="open-dot" style="display:none"></span> <span id="openText">Täglich ab 18 Uhr</span></span>
                     <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Täglich ab 18 Uhr</span>
                     <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Fr & Sa bis 2 Uhr</span>
                 </div>
@@ -1567,6 +1567,59 @@
 
     <!-- ═══ JS ═══ -->
     <script>
+        /* === CRITICAL FUNCTIONS — must load first === */
+        function openModal(id) {
+            document.getElementById(id).classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.show').forEach(function(m) {
+                    m.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        /* Cookie banner */
+        function acceptCookies() {
+            localStorage.setItem('zuma_cookies', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+        function declineCookies() {
+            localStorage.setItem('zuma_cookies', 'declined');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+        if (!localStorage.getItem('zuma_cookies')) {
+            setTimeout(function(){ document.getElementById('cookieBanner').classList.add('show'); }, 2000);
+        }
+
+        /* Signature Feature */
+        var selectedSize = '2';
+        function selectSize(el) {
+            document.querySelectorAll('.sig-card').forEach(function(c){ c.classList.remove('active'); });
+            el.classList.add('active');
+            selectedSize = el.dataset.size;
+            updateCta();
+        }
+        function updateCta() {
+            var msgs = {
+                '2': 'Hallo! Wir möchten gerne einen Tisch für 2 Personen reservieren. Wann wäre ein guter Zeitpunkt?',
+                '4': 'Hallo! Wir kommen mit 3-5 Freunden vorbei. Habt ihr einen Tisch für uns frei?',
+                '6': 'Hallo! Wir sind eine größere Gruppe (6+ Personen) und würden gerne einen Bereich reservieren. Ist das möglich?'
+            };
+            var cta = document.getElementById('sigCta');
+            if (cta) cta.href = 'https://wa.me/491733504409?text=' + encodeURIComponent(msgs[selectedSize]);
+        }
+        try { updateCta(); } catch(e) {}
+
+        /* === ENHANCEMENT FUNCTIONS — can fail gracefully === */
+        try {
+
         /* Icons are inline SVG — no JS needed */
 
         /* Scroll restoration */
@@ -1666,46 +1719,9 @@
         checkOpen();
         setInterval(checkOpen, 60000);
 
-        /* Signature Feature: Group size selector */
-        let selectedSize = '2';
-        function selectSize(el) {
-            document.querySelectorAll('.sig-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-            selectedSize = el.dataset.size;
-            updateCta();
-        }
-        function updateCta() {
-            const msgs = {
-                '2': 'Hallo! Wir möchten gerne einen Tisch für 2 Personen reservieren. Wann wäre ein guter Zeitpunkt?',
-                '4': 'Hallo! Wir kommen mit 3-5 Freunden vorbei. Habt ihr einen Tisch für uns frei?',
-                '6': 'Hallo! Wir sind eine größere Gruppe (6+ Personen) und würden gerne einen Bereich reservieren. Ist das möglich?'
-            };
-            document.getElementById('sigCta').href = 'https://wa.me/491733504409?text=' + encodeURIComponent(msgs[selectedSize]);
-        }
-        updateCta();
+        /* (all critical functions moved to top of script) */
 
-        /* Modals */
-        function openModal(id) {
-            document.getElementById(id).classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.show').forEach(m => {
-                    m.classList.remove('show');
-                    document.body.style.overflow = '';
-                });
-            }
-        });
-
-        /* Cookie banner */
-        if (!localStorage.getItem('zuma_cookies')) {
-            setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 2000);
-        }
-        function acceptCookies() {
-            localStorage.setItem('zuma_cookies', 'accepted');
-            document.getElementById('cookieBanner').classList.remove('show
+        } catch(e) { console.warn('Enhancement error:', e); }
+    </script>
+</body>
+</html>
